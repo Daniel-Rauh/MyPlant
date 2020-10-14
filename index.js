@@ -34,6 +34,9 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
 app.get('/', (req, res) => {
     res.status(200).render('index')
 })
+app.get('/house', (req, res) => {
+    res.render('house')
+})
 
 app.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] }));
