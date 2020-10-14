@@ -21,7 +21,18 @@
       </div>
     </a>
     <% }) %>
+    <section class="newRoomForm">
+      <div class="NewRoomFlex">
+        <h1>Add Room</h1>
+        <img src="icons8x.png" alt="" />
+      </div>
 
+      <form action="/newRoom" method="POST">
+        <input type="text" name="name" id="name" placeholder="Room Name" />
+        <br />
+        <input type="submit" value="Add" />
+      </form>
+    </section>
     <div class="navigation"><%-include('./partials/navigation')%></div>
   </body>
 </html>
