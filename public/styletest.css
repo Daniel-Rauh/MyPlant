@@ -63,27 +63,77 @@ ul {
 img {
   justify-content: baseline;
 }
-li {
+/* li {
   margin-right: 40px;
+} */
+
+.headerflex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  font-size: 25px;
+  padding-top: 5%;
 }
-<<<<<<< HEAD
-.plantCard img{
-  width: 200px;
-  height: 200px;
+
+.headerflex img {
+  width: 50px;
 }
-.watered{
-  position: absolute;
-  width: 200px;
-  height: 200px;
+.boxshadows {
+  border: 1px solid black;
+  box-shadow: inset;
+  width: 90%;
+  display: block;
+  margin: 6% auto;
+  box-shadow: 10px 5px 5px lightgreen;
+  border-radius: 40px;
+  text-align: center;
+  height: 40px;
 }
-.watered:after {
-  content:"";
-  position:absolute;
-  width:200px;
-  height:200px;
-  background:#00acee;
-  opacity: .5;
-  z-index: 3;
+
+.boxshadows h3 {
+  color: black;
 }
-=======
->>>>>>> 58005d2cbee63765be367b76bcb6c31b31783b25
+
+.boxshadows p {
+  color: gray;
+}
+.homeRoom {
+  text-decoration: none;
+}
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+nav {
+  background: #53ba89;
+  color: #ffffff;
+
+  /* justify-content: baseline;*/
+  display: flex;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.4em;
+  /*  */
+  display: inline-block;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  list-style: none;
+  /* try out */
+  width: 100vw;
+}
+nav img {
+  width: 40px;
+  height: 40px;
+}
+nav img:hover {
+  width: 50px;
+  height: 50px;
+}
