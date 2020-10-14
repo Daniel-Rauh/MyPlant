@@ -65,6 +65,14 @@ app.get('/newRoom', (req, res) => {
     res.status(200).render('newRoom')
 })
 
+app.get('/myHome', (req, res) => {
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            res.status(200).render('myHome', {data: result[0]})
+        })
+})
+
 app.post('/newRoom', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
