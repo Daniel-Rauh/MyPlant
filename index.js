@@ -121,10 +121,6 @@ app.get('/room/:id', (req, res) => {
         })
 })
 
-app.get('/newPlant', (req, res) => {
-    res.status(200).render('newPlant')
-})
-
 app.post('/newRoom', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
@@ -172,7 +168,10 @@ app.post('/newPlant/:id', (req, res) => {
                 newPlants.push(newPlant)
                 User.findByIdAndUpdate(result._id, { plants: newPlants })
                     .catch(err => console.log(err))
-                    .then(console.log('Plants updated'))
+                    .then(() => {
+                        console.log('Plants updated')
+                        res.status(200).redirect(`/room/${req.params.id}`)
+                    })
             } else {
                 let newPlants = result[0].plants
                 let newPlant = {
@@ -186,7 +185,10 @@ app.post('/newPlant/:id', (req, res) => {
                 newPlants.push(newPlant)
                 User.findByIdAndUpdate(result[0]._id, { plants: newPlants })
                     .catch(err => console.log(err))
-                    .then(console.log('Plants updated'))
+                    .then(() => {
+                        console.log('Plants updated')
+                        res.status(200).redirect(`/room/${req.params.id}`)
+                    })
             }
         })
 })
