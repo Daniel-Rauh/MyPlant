@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styletest.css" />
+  </head>
+  <body>
+    <article class="headerflex">
+      <div>
+        <h1>My Home</h1>
+      </div>
+      <div><img src="icons8-pluss.svg" alt="" /></div>
+    </article>
     <% data.rooms.forEach(room => { %>
-     <div class="homeRoom">
-        <h3><%= room.name %> </h3>
+    <a href="#" class="homeRoom">
+      <div class="boxshadows">
+        <h3><%= room.name %></h3>
         <p>4 plants</p>
-     </div>
+      </div>
+    </a>
     <% }) %>
-</body>
+
+    <div class="navigation"><%-include('./partials/navigation')%></div>
+  </body>
 </html>
