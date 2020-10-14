@@ -41,6 +41,7 @@ app.get('/house', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
+            console.log(result[0].plants)
             if (result[0].lastUpdated != day) {
                 let newPlants = result[0].plants
                 let newMiss = result[0].daysSinceMiss
@@ -61,11 +62,11 @@ app.get('/house', (req, res) => {
                 } else {
                     newMiss = 0
                 }
-                User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants, lastUpdated: day, daysSinceMiss: newMiss }, {useFindAndModify: false})
+                User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants, lastUpdated: day, daysSinceMiss: newMiss }, { useFindAndModify: false })
                     .catch(err => console.log(err))
                     .then(console.log("Watering needs updated"))
             }
-            res.status(200).render('house', {data: result[0], today: day})
+            res.status(200).render('house', { data: result[0], today: day })
         })
 })
 
@@ -80,7 +81,7 @@ app.get('/profile', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
-            res.status(200).render('profile', {user: result[0]})
+            res.status(200).render('profile', { user: result[0] })
         })
 })
 
@@ -97,7 +98,7 @@ app.get('/myHome', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
-            res.status(200).render('myHome', {data: result[0]})
+            res.status(200).render('myHome', { data: result[0] })
         })
 })
 
@@ -117,7 +118,7 @@ app.get('/room/:id', (req, res) => {
                     plants.push(result[0].plants[i])
                 }
             }
-            res.status(200).render('room', {room : room, plants: plants})
+            res.status(200).render('room', { room: room, plants: plants })
         })
 })
 
@@ -146,7 +147,7 @@ app.post('/newRoom', (req, res) => {
 })
 
 app.post('/newPlant/:id', (req, res) => {
-    User.find({googleId: req.user.googleId})
+    User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
             let resultRoom = ""
@@ -203,7 +204,7 @@ app.get('/waterPlant/:id', (req, res) => {
                     newPlants[i].needsWater = false
                 }
             }
-            User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants }, {useFindAndModify: false})
+            User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants }, { useFindAndModify: false })
                 .catch(err => console.log(err))
                 .then(console.log("plant watered"))
             res.redirect('/house')

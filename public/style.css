@@ -46,9 +46,9 @@ h1 {
 nav {
   background: #53ba89;
   color: #ffffff;
-  padding: 30px 20px 10px;
-  height: calc(10vh - 20px);
-  justify-content: baseline;
+  padding: 20px 20px 10px;
+  /* height: calc(10vh - 20px); */
+  justify-content: center;
 }
 nav a {
   text-decoration: none;
@@ -99,7 +99,7 @@ li {
     font-weight: 100;
     /* padding: 20px 40px; */
     text-align:center;
-    color:black;
+    color:#80849e;
   
 }
 .room h3{
@@ -181,12 +181,48 @@ li {
   width:200px;
   height:200px;
   background:#00acee;
+  border-radius: 40px;
   opacity: .5;
   z-index: 3;
 }
+<<<<<<< HEAD
 
 #roomGrid{
   padding: 5vh 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+=======
+/* ********************************* */
+#picture{
+  border-radius: 40px;
+ margin-left: 40%;
+}
+.text {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 25%;
+ 
+}
+.text p{
+  color: #80849e;
+}
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  margin-top: 40px;
+}
+.icons p{
+  display: flex;
+  justify-content: baseline;
+}
+.days{
+   display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  margin-top: 40px;
+}
+>>>>>>> f2e63d0922ea8115ff115eb9c4fbb95ed2eb7ada
