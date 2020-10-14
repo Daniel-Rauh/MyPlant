@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <p><%= today %></p>
     <h1>My Plants</h1>
     <% data.rooms.forEach(room => { %>
@@ -20,19 +19,20 @@
         <% data.plants.forEach(plant => { %>
         <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
         <a href="/waterPlant/<%= plant._id %> ">
-        <div class="plantCard">
-            <img src=<%= plant.picture %> alt="">
-            <p><%= plant.name %> </p>
-        </div>
-        </a>
-        <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
             <div class="plantCard">
-                <div class="watered"></div>
                 <img src=<%= plant.picture %> alt="">
                 <p><%= plant.name %> </p>
             </div>
-        <% } %> 
+        </a>
+        <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
+        <div class="plantCard">
+            <div class="watered"></div>
+            <img src=<%= plant.picture %> alt="">
+            <p><%= plant.name %> </p>
+        </div>
+        <% } %>
     </div>
     <% }) %> <% }) %> <%-include('./partials/navigation')%>
-  </body>
+</body>
+
 </html>

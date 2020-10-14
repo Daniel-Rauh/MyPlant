@@ -60,6 +60,106 @@ ul {
   margin: 0;
   list-style: none;
 }
+
+li {
+  margin-right: 40px;
+}
+.header{
+    margin-left:10%;
+}
+#hero{
+   
+    padding: 40px 0 5vh;
+  
+}
+.room{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 5% 10%;
+}
+.plantCard{
+  width: 300px;
+  height: 300px;
+    /* background: #fbfdfc; */
+    transition: transform .2s, box-shadow .2s;
+   border-radius: 40px;
+}
+.plantCard:hover{
+    /* box-shadow: 0 0 12px 2px 'rgb(83, 186, 137)'; */
+    transform: scale(1.05);
+}
+.plantCard img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+ border-radius: 40px;
+}
+.plantCard p{
+    font-weight: 100;
+    /* padding: 20px 40px; */
+    text-align:center;
+    color:black;
+  
+}
+.room h3{
+  color:#53ba89;
+  grid-column: 1/-1;
+ 
+}
+/* /////////////////////////////////////////// */
+#new{
+    margin: 100px 20%;
+}
+
+#new form{
+    width: 60%;
+    margin: 0 auto 100px;
+}
+#new form input, #new form textarea{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    background: #E5E5E5;
+    border: none;
+    border-radius: 40px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+#new form input::placeholder, #new form textarea::placeholder{
+    font-family: 'Poppins', sans-serif;
+}
+#new form input:last-of-type{
+  width: 200px;
+    background:#53ba89;
+    color: #ffffff;
+    border-radius: 40px;
+   
+}
+/* ****************************************************** */
+.weekDays-selector{
+  margin: 20px 0;
+}
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 40px;
+  background: #1ebb88;
+  height: 40px;
+  width: 40px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #8fdaca;
+  color: #ffffff;
+}
 img {
   justify-content: baseline;
 }
