@@ -144,12 +144,13 @@ nav img:hover {
   display: block;
   text-align: center;
   border: 1px solid black;
-  width: 70vh;
+  width: 55vh;
   margin: 0 auto;
   padding-top: 10%;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   background: #ffffff;
+  
 }
 
 .newRoomForm input:first-of-type {
