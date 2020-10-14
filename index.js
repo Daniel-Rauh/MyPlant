@@ -23,7 +23,7 @@ app.use(passport.session())
 
 const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
 let day = dayArr[new Date().getDay()]
-let yesterday = dayArr[new Date().getDay() - 1]
+console.log(day)
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
@@ -42,6 +42,7 @@ app.get('/house', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
+            console.log(result[0].plants)
             if (result[0].lastUpdated != day) {
                 let newPlants = result[0].plants
                 let newMiss = result[0].daysSinceMiss

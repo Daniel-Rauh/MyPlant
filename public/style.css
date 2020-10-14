@@ -46,9 +46,9 @@ h1 {
 nav {
   background: #53ba89;
   color: #ffffff;
-  padding: 30px 20px 10px;
-  height: calc(10vh - 20px);
-  justify-content: baseline;
+  padding: 20px 20px 10px;
+  /* height: calc(10vh - 20px); */
+  justify-content: center;
 }
 nav a {
   text-decoration: none;
