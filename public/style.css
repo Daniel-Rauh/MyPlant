@@ -185,14 +185,12 @@ li {
   opacity: .5;
   z-index: 3;
 }
-<<<<<<< HEAD
 
 #roomGrid{
   padding: 5vh 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-=======
 /* ********************************* */
 #picture{
   border-radius: 40px;
@@ -225,4 +223,3 @@ li {
   justify-content:space-evenly;
   margin-top: 40px;
 }
->>>>>>> f2e63d0922ea8115ff115eb9c4fbb95ed2eb7ada
