@@ -16,7 +16,7 @@ app.use(cookieSession({
 
 app.use(express.static('public'))
 app.use(express.json())
-app.use(express.urlencoded( {extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(passport.session())
@@ -33,6 +33,9 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
 
 app.get('/', (req, res) => {
     res.status(200).render('index')
+})
+app.get('/house', (req, res) => {
+    res.render('house')
 })
 
 app.get('/auth/google',
