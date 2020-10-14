@@ -146,7 +146,7 @@ li {
 .weekDays-selector input[type=checkbox] + label {
   display: inline-block;
   border-radius: 40px;
-  background: #1ebb88;
+  background: #8fdaca;
   height: 40px;
   width: 40px;
   margin-right: 3px;
@@ -157,7 +157,7 @@ li {
 }
 
 .weekDays-selector input[type=checkbox]:checked + label {
-  background: #8fdaca;
+  background: #1ebb88;
   color: #ffffff;
 }
 img {
