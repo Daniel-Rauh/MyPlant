@@ -23,7 +23,6 @@ app.use(passport.session())
 
 const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
 let day = dayArr[new Date().getDay()]
-let yesterday = dayArr[new Date().getDay() - 1]
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
