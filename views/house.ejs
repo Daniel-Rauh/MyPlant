@@ -16,7 +16,6 @@
     <h1>My Plants</h1>
     <% data.rooms.forEach(room => { %>
     <div class="room">
-<<<<<<< HEAD
         <h3><%= room.name %> </h3>
         <% data.plants.forEach(plant => { %>
         <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
@@ -33,16 +32,6 @@
                 <p><%= plant.name %> </p>
             </div>
         <% } %> 
-=======
-      <h3><%= room.name %></h3>
-      <% data.plants.forEach(plant => { %> <% if (plant.room === room.name &&
-      plant.schedule.includes(today)) { %>
-      <div class="plantCard">
-        <img src="<%" ="plant.picture" % /> alt="">
-        <p><%= plant.name %></p>
-      </div>
-      <% } %>
->>>>>>> 58005d2cbee63765be367b76bcb6c31b31783b25
     </div>
     <% }) %> <% }) %> <%-include('./partials/navigation')%>
   </body>
