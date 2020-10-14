@@ -20,8 +20,10 @@ const userSchema = new Schema({
     lastName: String,
     email: String,
     picture: String,
+    lastUpdated: String,
+    daysSinceMiss: Number,
     rooms: [roomSchema],
-    plants: [plantSchema]
+    plants: [plantSchema],
 })
 
 const User = mongoose.model('user', userSchema)

@@ -23,6 +23,7 @@ app.use(passport.session())
 
 const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
 let day = dayArr[new Date().getDay()]
+let yesterday = dayArr[new Date().getDay() - 1]
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
@@ -41,6 +42,30 @@ app.get('/house', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
+            if (result[0].lastUpdated != day) {
+                let newPlants = result[0].plants
+                let newMiss = result[0].daysSinceMiss
+                let missCounter = 0
+                let wateredCounter = 0
+                for (i = 0; i < newPlants.length; i++) {
+                    if (newPlants[i].schedule.includes(day)) {
+                        newPlants[i].needsWater = true
+                    } else if (!newPlants[i].schedule.includes(day) && newPlants[i].needsWater === false) {
+                        wateredCounter++
+                        missCounter++
+                    } else if (!newPlants[i].schedule.includes(day)) {
+                        missCounter++
+                    }
+                }
+                if (wateredCounter === missCounter) {
+                    newMiss++
+                } else {
+                    newMiss = 0
+                }
+                User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants, lastUpdated: day, daysSinceMiss: newMiss }, {useFindAndModify: false})
+                    .catch(err => console.log(err))
+                    .then(console.log("Watering needs updated"))
+            }
             res.status(200).render('house', {data: result[0], today: day})
         })
 })
@@ -65,6 +90,18 @@ app.get('/newRoom', (req, res) => {
     res.status(200).render('newRoom')
 })
 
+app.get('/myHome', (req, res) => {
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            res.status(200).render('myHome', {data: result[0]})
+        })
+})
+
+app.get('/newPlant', (req, res) => {
+    res.status(200).render('newPlant')
+})
+
 app.post('/newRoom', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
@@ -87,10 +124,6 @@ app.post('/newRoom', (req, res) => {
                     })
             }
         })
-})
-
-app.get('/newPlant', (req, res) => {
-    res.status(200).render('newPlant')
 })
 
 app.post('/newPlant/:id', (req, res) => {
@@ -132,5 +165,22 @@ app.post('/newPlant/:id', (req, res) => {
                     .catch(err => console.log(err))
                     .then(console.log('Plants updated'))
             }
+        })
+})
+
+app.get('/waterPlant/:id', (req, res) => {
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            let newPlants = result[0].plants
+            for (i = 0; i < newPlants.length; i++) {
+                if (newPlants[i]._id == req.params.id) {
+                    newPlants[i].needsWater = false
+                }
+            }
+            User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants }, {useFindAndModify: false})
+                .catch(err => console.log(err))
+                .then(console.log("plant watered"))
+            res.redirect('/house')
         })
 })

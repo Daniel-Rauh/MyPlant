@@ -3,6 +3,9 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require('passport')
 const User = require('../models/user')
 
+const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+let day = dayArr[new Date().getDay()]
+
 passport.serializeUser(function (user, done) {
     done(null, user);
 });
@@ -29,7 +32,9 @@ passport.use(new GoogleStrategy({
                     firstName: profile.name.givenName,
                     lastName: profile.name.familyName,
                     email: profile.emails[0].value,
-                    picture: profile.photos[0].value
+                    picture: profile.photos[0].value,
+                    lastUpdated: day,
+                    daysSinceMiss: 0
                 }).save()
                     .then(() => {
                         console.log('User created')
