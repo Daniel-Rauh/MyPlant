@@ -17,12 +17,20 @@
     <div class="room">
         <h3><%= room.name %> </h3>
         <% data.plants.forEach(plant => { %>
-        <% if (plant.room === room.name && plant.schedule.includes(today)) { %>
+        <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
+        <a href="/waterPlant/<%= plant._id %> ">
         <div class="plantCard">
             <img src=<%= plant.picture %> alt="">
             <p><%= plant.name %> </p>
         </div>
-        <% } %>
+        </a>
+        <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
+            <div class="plantCard">
+                <div class="watered"></div>
+                <img src=<%= plant.picture %> alt="">
+                <p><%= plant.name %> </p>
+            </div>
+        <% } %> 
     </div>
     <% }) %>
     <% }) %>
