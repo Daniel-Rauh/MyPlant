@@ -23,7 +23,6 @@ app.use(passport.session())
 
 const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
 let day = dayArr[new Date().getDay()]
-let yesterday = dayArr[new Date().getDay() - 1]
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
@@ -78,7 +77,11 @@ app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => 
 })
 
 app.get('/profile', (req, res) => {
-    res.status(200).render('profile', { user: req.user })
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            res.status(200).render('profile', {user: result[0]})
+        })
 })
 
 app.get('/logout', (req, res) => {
@@ -95,6 +98,26 @@ app.get('/myHome', (req, res) => {
         .catch(err => console.log(err))
         .then((result) => {
             res.status(200).render('myHome', {data: result[0]})
+        })
+})
+
+app.get('/room/:id', (req, res) => {
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            let plants = []
+            let room
+            for (i = 0; i < result[0].rooms.length; i++) {
+                if (result[0].rooms[i]._id == req.params.id) {
+                    room = result[0].rooms[i]
+                }
+            }
+            for (i = 0; i < result[0].plants.length; i++) {
+                if (result[0].plants[i].room == room.name) {
+                    plants.push(result[0].plants[i])
+                }
+            }
+            res.status(200).render('room', {room : room, plants: plants})
         })
 })
 

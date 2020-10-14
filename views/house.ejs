@@ -11,28 +11,32 @@
 </head>
 
 <body>
-    <p><%= today %></p>
-    <h1>My Plants</h1>
-    <% data.rooms.forEach(room => { %>
-    <div class="room">
-        <h3><%= room.name %> </h3>
-        <% data.plants.forEach(plant => { %>
-        <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
-        <a href="/waterPlant/<%= plant._id %> ">
+    <section id="hero">
+        <p><%= today %></p>
+        <h1>My Plants</h1>
+        <% data.rooms.forEach(room => { %>
+        <div class="room">
+            <h3><%= room.name %> </h3>
+            <% data.plants.forEach(plant => { %>
+            <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
+            <a href="/waterPlant/<%= plant._id %> ">
+                <div class="plantCard">
+                    <img src=<%= plant.picture %> alt="">
+                    <p><%= plant.name %> </p>
+                </div>
+            </a>
+            <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
             <div class="plantCard">
+                <div class="watered"></div>
                 <img src=<%= plant.picture %> alt="">
                 <p><%= plant.name %> </p>
             </div>
-        </a>
-        <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
-        <div class="plantCard">
-            <div class="watered"></div>
-            <img src=<%= plant.picture %> alt="">
-            <p><%= plant.name %> </p>
+            <% } %>
+            <% }) %>
         </div>
-        <% } %>
-    </div>
-    <% }) %> <% }) %> <%-include('./partials/navigation')%>
+        <% }) %>
+    </section>
+    <%-include('./partials/navigation')%>
 </body>
 
 </html>
