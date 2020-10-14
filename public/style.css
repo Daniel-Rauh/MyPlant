@@ -184,3 +184,9 @@ li {
   opacity: .5;
   z-index: 3;
 }
+
+#roomGrid{
+  padding: 5vh 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

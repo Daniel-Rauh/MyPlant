@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styletest.css">
 </head>
+
 <body>
-    <p><%= room.name %> </p>
-    <% plants.forEach(element => { %>
-     <p><%= element.name %> </p>
-    <% }) %>
+    <article class="headerflex">
+        <div>
+            <h1><%= room.name %> </h1>
+        </div>
+        <div><img src="/icons8-pluss.svg" alt="" /></div>
+    </article>
+    <section id="roomGrid">
+        <% plants.forEach(plant => { %>
+        <div class="plantCard">
+            <img src=<%= plant.picture %> alt="">
+            <p><%= plant.name %> </p>
+        </div>
+        <% }) %>
+    </section>
+    <div class="navigation"><%-include('./partials/navigation')%></div>
 </body>
+
 </html>
