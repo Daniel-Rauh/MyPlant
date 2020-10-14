@@ -21,6 +21,9 @@ app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(passport.session())
 
+const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+let day = dayArr[new Date().getDay()]
+
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
         console.log("I am connect")
@@ -35,19 +38,21 @@ app.get('/', (req, res) => {
     res.status(200).render('index')
 })
 app.get('/house', (req, res) => {
-    res.render('house')
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            res.status(200).render('house', {data: result[0], today: day})
+        })
 })
 
 app.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-    res.redirect('/profile')
-    //console.log(req.user)
+    res.redirect('/house')
 })
 
 app.get('/profile', (req, res) => {
-    console.log(req.user)
     res.status(200).render('profile', { user: req.user })
 })
 
@@ -64,14 +69,11 @@ app.post('/newRoom', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
-            console.log(result[0]._id)
-            console.log(req.body)
             if (result[0].rooms === undefined) {
                 const newRooms = []
                 newRooms.push(req.body)
                 User.findByIdAndUpdate(result[0]._id, { rooms: newRooms })
                     .then((result) => {
-                        console.log(result)
                         console.log('Rooms updated')
                         res.status(201).redirect('/newRoom')
                     })
@@ -80,7 +82,6 @@ app.post('/newRoom', (req, res) => {
                 newRooms.push(req.body)
                 User.findByIdAndUpdate(result[0]._id, { rooms: newRooms })
                     .then((result) => {
-                        console.log(result)
                         console.log('Rooms updated')
                         res.status(201).redirect('/newRoom')
                     })

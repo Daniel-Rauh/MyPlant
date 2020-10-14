@@ -11,9 +11,21 @@
 </head>
 
 <body>
-    <p>Monday</p>
+    <p><%= today %> </p>
     <h1>My Plants</h1>
-    <h3>Living Room</h3>
+    <% data.rooms.forEach(room => { %>
+    <div class="room">
+        <h3><%= room.name %> </h3>
+        <% data.plants.forEach(plant => { %>
+        <% if (plant.room === room.name && plant.schedule.includes(today)) { %>
+        <div class="plantCard">
+            <img src=<%= plant.picture %> alt="">
+            <p><%= plant.name %> </p>
+        </div>
+        <% } %>
+    </div>
+    <% }) %>
+    <% }) %>
     <%-include('./partials/navigation')%>
 </body>
 
