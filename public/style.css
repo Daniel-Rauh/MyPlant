@@ -211,6 +211,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content:space-evenly;
+  align-items: flex-end;
   margin-top: 40px;
 }
 .icons p{
@@ -221,5 +222,12 @@ li {
    display: flex;
   flex-direction: row;
   justify-content:space-evenly;
+  align-items: flex-end;
   margin-top: 40px;
+}
+footer{
+  margin-top: 45%;
+}
+#profileCard{
+  margin-top: 8%;
 }
