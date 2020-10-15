@@ -34,7 +34,8 @@ passport.use(new GoogleStrategy({
                     email: profile.emails[0].value,
                     picture: profile.photos[0].value,
                     lastUpdated: day,
-                    daysSinceMiss: 0
+                    daysSinceMiss: 0,
+                    totalPlants: 0
                 }).save()
                     .then(() => {
                         console.log('User created')

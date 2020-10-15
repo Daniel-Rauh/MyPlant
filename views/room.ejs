@@ -18,10 +18,12 @@
     </article>
     <section id="roomGrid">
         <% plants.forEach(plant => { %>
-        <div class="plantCard">
-            <img src=<%= plant.picture %> alt="">
-            <p><%= plant.name %> </p>
-        </div>
+        <a href="/plant/<%= plant._id %> ">
+            <div class="plantCard">
+                <img src=<%= plant.picture %> alt="">
+                <p><%= plant.name %> </p>
+            </div>
+        </a>
         <% }) %>
     </section>
     <section id="new">

@@ -12,6 +12,7 @@ const plantSchema = new Schema({
 
 const roomSchema = new Schema({
     name: String,
+    plants: Number,
 })
 
 const userSchema = new Schema({
@@ -22,6 +23,7 @@ const userSchema = new Schema({
     picture: String,
     lastUpdated: String,
     daysSinceMiss: Number,
+    totalPlants: Number,
     rooms: [roomSchema],
     plants: [plantSchema],
 })
