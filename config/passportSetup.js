@@ -2,6 +2,7 @@ require("dotenv").config()
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require('passport')
 const User = require('../models/user')
+const uri = process.env.CALLBACK_URI || "http://localhost:3000/auth/google/callback"
 
 const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
 let day = dayArr[new Date().getDay()]
@@ -19,7 +20,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: uri
 },
     (accessToken, refreshToken, profile, done) => {
         User.find({ googleId: profile.id }).then((user) => {
