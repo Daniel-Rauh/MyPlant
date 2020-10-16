@@ -70,14 +70,14 @@ ul {
   justify-content: space-around;
   width: 100%;
     height: 60px;
-  margin: 0;
+  margin: 11px;
   list-style: none;
 }
 .header{
     margin-left:10%;
 }
 #hero{
-    padding: 0 0 5vh;
+    padding: 0 0 20vh;
 }
 .room{
   margin-top: 5vh;
@@ -151,6 +151,14 @@ ul {
     color: #ffffff;
     border-radius: 40px;
 }
+#species {
+     width: 94%;
+    background: #E5E5E5;
+    border: none;
+    border-radius: 40px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
 /* ****************************************************** */
 .weekDays-selector{
   margin: 20px 0;
@@ -164,7 +172,7 @@ ul {
   background: #8fdaca;
   height: 40px;
   width: 40px;
-  margin-right: 3px;
+  margin: 0 3px 5px 0;
   line-height: 40px;
   text-align: center;
   cursor: pointer;
@@ -184,7 +192,7 @@ img {
   background:#00acee;
   border-radius: 20%;
   opacity: .5;
-  z-index: 3;
+  z-index: 2;
 }
 #roomGrid{
   padding: 5vh 10%;
@@ -196,10 +204,11 @@ img {
   margin-bottom: 20px;
 }
 /* ********************************* */
-#picture{
+#bild{
   border-radius: 50%;
   margin-left: 40%;
   width: 30%;
+
 }
 .text {
   width: 200px;
@@ -238,8 +247,7 @@ footer{
   min-height: 85vh;
 }
 #plant{
-  min-height: 80vh;
-  padding: 5vh 10%;
+  padding: 0 10%;
 }
 #plant img{
   display: block;
@@ -266,7 +274,7 @@ footer{
   margin-top: 20px;
   display: block;
   width: 20%;
-  padding: 15px 50px;
+  padding: 12px 50px;
 }
 #profileCard a{
   margin: 20px auto;
@@ -275,6 +283,16 @@ footer{
   padding: 15px 50px;
 }
 .blurr{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 90vh;
+  background: rgba(0, 0, 0, .8);
+  z-index: 3;
+  transition: transform .6s;
+  transform-origin: top;
+}
+.blurr2{
   position: fixed;
   top: 0;
   width: 100vw;
@@ -293,8 +311,51 @@ footer{
 .formFlex{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-#new h6{
+.formFlex h6{
   font-size: 1.8rem;
-  padding-top: 5px;
+  padding-bottom: 13px;
+}
+span{
+  font-size: 1.5rem;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.blue{
+  color: #00acee;
+}
+#new p{
+  font-size: 1rem;
+}
+#new p:last-of-type{
+  margin-bottom: 10px;
+}
+#info{
+    margin: 10px 0 0;
+    padding: 0 5%;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    bottom: 10vh;
+    background: #fbfdfc;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    overflow: hidden;
+    transition: transform .6s;
+    transform-origin: bottom;
+}
+#info p{
+  font-size: 1rem;
+}
+#info p:last-of-type{
+  margin-bottom: 10px;
+}
+.plantHeaderFlex{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 10px;
+}
+.plantHeaderFlex span{
+  margin-right: 0px;
 }

@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Home</title>
+    <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/styletest.css" />
   </head>
 
   <body>
+    <div class="blurr hidden" onclick="showForm()"></div>
     <article class="headerflex">
       <div>
         <h1>My Home</h1>
       </div>
-      <button class="buttonRoom">
-        <img src="icons8-pluss.svg" alt="" />
-      </button>
+      <span onclick="showForm()">?</span>
     </article>
     <% data.rooms.forEach(room => { %>
     <a href="/room/<%= room._id %> " class="homeRoom">
@@ -24,7 +24,27 @@
       </div>
     </a>
     <% }) %>
-    <section id="newRoomForm">
+    <button class="buttonRoom">
+      <img src="icons8-pluss.svg" onclick="myFunction()" alt="" />
+    </button>
+    <section id="new" class="hidden">
+      <div class="formFlex">
+        <h1>Info</h1>
+        <h6 onclick="showForm()">x</h6>
+      </div>
+      <p>This screen displays all rooms in your house.</p>
+      <br />
+      <p>
+        You can click on each individual room to see the plants you have in that
+        specific room.
+      </p>
+      <br />
+      <p>
+        If it's still empty try adding your first room by clicking on the plus
+        sign.
+      </p>
+    </section>
+    <section id="newRoomForm"></section>
       <div class="NewRoomFlex">
         <h1>Add Room</h1>
         <button class="buttonRoom">
@@ -50,7 +70,14 @@
             $("section").slideUp();
           }
         });
-      });
+      const blurr = document.getElementsByClassName("blurr");
+      const form = document.getElementById("new");
+      function showForm() {
+        form.classList.toggle("hidden");
+        for (i = 0; i < blurr.length; i++) {
+          blurr[i].classList.toggle("hidden");
+        }
+      }
     </script>
 
     <div class="navigation"><%-include('./partials/navigation')%></div>
