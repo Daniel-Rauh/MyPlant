@@ -12,13 +12,15 @@
       <div>
         <h1>My Home</h1>
       </div>
-      <div><img src="icons8-pluss.svg" onclick="myFunction()" alt="" /></div>
+      <button>
+        <img src="icons8-pluss.svg" onclick="myFunction()" alt="" />
+      </button>
     </article>
     <% data.rooms.forEach(room => { %>
     <a href="/room/<%= room._id %> " class="homeRoom">
       <div class="boxshadows">
         <h3><%= room.name %></h3>
-        <p><%= room.plants %>  plants</p>
+        <p><%= room.plants %> plants</p>
       </div>
     </a>
     <% }) %>
@@ -35,16 +37,14 @@
       </form>
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
-      function myFunction() {
-        var x = document.getElementById("newRoomForm");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          
-          x.style.display = "none";
-        }
-      }
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("section").slideToggle();
+        });
+      });
     </script>
 
     <div class="navigation"><%-include('./partials/navigation')%></div>
