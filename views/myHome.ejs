@@ -13,7 +13,7 @@
         <h1>My Home</h1>
       </div>
       <button class="buttonRoom">
-        <img src="icons8-pluss.svg" onclick="myFunction()" alt="" />
+        <img src="icons8-pluss.svg" alt="" />
       </button>
     </article>
     <% data.rooms.forEach(room => { %>
@@ -44,7 +44,11 @@
     <script>
       $(document).ready(function () {
         $("button").click(function () {
-          $("section").slideToggle();
+          if ($("section").first().is(":hidden")) {
+            $("section").show("slow");
+          } else {
+            $("section").slideUp();
+          }
         });
       });
     </script>
