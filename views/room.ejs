@@ -34,7 +34,13 @@
                 <h6 onclick="showForm()">x</h6>
             </div>
             <input type="text" name="name" id="name" placeholder="Plant name">
-            <input type="text" name="species" id="species" placeholder="Species">
+            <!-- <input type="text" name="species" id="species" placeholder="Species"> -->
+            <select id="species" name="species">
+                <option value="seed">Seed</option>
+                <option value="cactus">Cactus</option>
+                <option value="seedless">Seedless</option>
+                <option value="plant">Plant</option>
+            </select>
             <input type="text" name="picture" id="formPicture" placeholder="picture">
             <input type="file" accept="image/*" capture="camera" />
             <p>Watering Schedule</p>
