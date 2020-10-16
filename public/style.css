@@ -4,6 +4,9 @@
   scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
 }
+a{
+  text-decoration: none;
+}
 body {
   height: 100vh;
   background-color: #fbfdfc;
@@ -27,6 +30,10 @@ body {
   /* top: 80%; */
   background-color: #fbfdfc;
 }
+.intro img{
+  height: 75vh;
+  object-fit: cover;
+}
 h1 {
   font-size: 2em;
   font-weight: 700;
@@ -39,7 +46,7 @@ h1 {
   background-color: #53ba89;
   color: #fff;
   letter-spacing: 1px;
-  padding: 20px 20px;
+  padding: 15px 20px;
   margin: 5px auto;
   border-radius: 40px;
 }
@@ -60,7 +67,6 @@ ul {
   margin: 0;
   list-style: none;
 }
-
 li {
   margin-right: 40px;
 }
@@ -68,50 +74,47 @@ li {
     margin-left:10%;
 }
 #hero{
-   
-    padding: 40px 0 5vh;
-  
+    padding: 0 0 5vh;
 }
 .room{
+  margin-top: 5vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 20px;
   padding: 5% 10%;
 }
 .plantCard{
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 20vh;
     /* background: #fbfdfc; */
     transition: transform .2s, box-shadow .2s;
-   border-radius: 40px;
+    border-radius: 40px;
+    position: relative;
 }
 .plantCard:hover{
     /* box-shadow: 0 0 12px 2px 'rgb(83, 186, 137)'; */
     transform: scale(1.05);
 }
 .plantCard img{
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
- border-radius: 40px;
+    border-radius: 20%;
 }
 .plantCard p{
     font-weight: 100;
     /* padding: 20px 40px; */
     text-align:center;
     color:#80849e;
-  
 }
 .room h3{
   color:#53ba89;
   grid-column: 1/-1;
- 
 }
 /* /////////////////////////////////////////// */
 #new{
     margin: 100px 20%;
 }
-
 #new form{
     width: 60%;
     margin: 0 auto 100px;
@@ -133,7 +136,6 @@ li {
     background:#53ba89;
     color: #ffffff;
     border-radius: 40px;
-   
 }
 /* ****************************************************** */
 .weekDays-selector{
@@ -142,7 +144,6 @@ li {
 .weekDays-selector input {
   display: none!important;
 }
-
 .weekDays-selector input[type=checkbox] + label {
   display: inline-block;
   border-radius: 40px;
@@ -155,7 +156,6 @@ li {
   cursor: pointer;
   color: #ffffff;
 }
-
 .weekDays-selector input[type=checkbox]:checked + label {
   background: #1ebb88;
   color: #ffffff;
@@ -166,36 +166,29 @@ img {
 li {
   margin-right: 40px;
 }
-.plantCard img{
-  width: 200px;
-  height: 200px;
-}
 .watered{
   position: absolute;
-  width: 200px;
-  height: 200px;
-}
-.watered:after {
-  content:"";
-  position:absolute;
-  width:200px;
-  height:200px;
+  width: 100%;
+  height: 20vh;
   background:#00acee;
-  border-radius: 40px;
+  border-radius: 20%;
   opacity: .5;
   z-index: 3;
 }
-
 #roomGrid{
   padding: 5vh 10%;
+  gap: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+#roomGrid a{
+  margin-bottom: 20px;
 }
 /* ********************************* */
 #picture{
   border-radius: 50%;
- margin-left: 40%;
- width: 30%;
+  margin-left: 40%;
+  width: 30%;
 }
 .text {
   width: 200px;
@@ -203,7 +196,6 @@ li {
   flex-direction: row;
   justify-content: space-evenly;
   margin-left: 25%;
- 
 }
 .text p{
   color: #80849e;
@@ -220,9 +212,10 @@ li {
   justify-content: baseline;
 }
 .days{
-   display: flex;
+  display: flex;
   flex-direction: row;
   justify-content:space-evenly;
+  align-items: flex-end;
   margin-top: 40px;
 }
 #plant{
@@ -252,6 +245,12 @@ li {
 }
 #plant a{
   margin-top: 20px;
+  display: block;
+  width: 20%;
+  padding: 15px 50px;
+}
+#profileCard a{
+  margin: 20px auto;
   display: block;
   width: 20%;
   padding: 15px 50px;

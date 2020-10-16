@@ -23,6 +23,32 @@
         </div>
         <a href="/deletePlant/<%= plant._id %> " class="mint">Delete</a>
     </section>
+    <section id="new">
+        <form action="/editPlant/<%= plant._id %>" method="POST">
+            <h1>Edit Plant</h1>
+            <input type="text" name="name" id="name" value=<%= plant.name %> >
+            <input type="text" name="species" id="species" value=<%= plant.species %> >
+            <input type="text" name="picture" id="picture" value=<%= plant.picture %> >
+            <p>Watering Schedule</p>
+            <div class="weekDays-selector">
+                <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">
+                <label for="weekday-mon">M</label>
+                <input type="checkbox" name="schedule" id="weekday-tue" value="Dienstag">
+                <label for="weekday-tue">T</label>
+                <input type="checkbox" name="schedule" id="weekday-wed" value="Mittwoch">
+                <label for="weekday-wed">W</label>
+                <input type="checkbox" name="schedule" id="weekday-thu" value="Donnerstag">
+                <label for="weekday-thu">T</label>
+                <input type="checkbox" name="schedule" id="weekday-fri" value="Freitag">
+                <label for="weekday-fri">F</label>
+                <input type="checkbox" name="schedule" id="weekday-sat" value="Samstag">
+                <label for="weekday-sat">S</label>
+                <input type="checkbox" name="schedule" id="weekday-sun" value="Sonntag">
+                <label for="weekday-sun">S</label>
+            </div>
+            <input type="submit" value="Edit">
+        </form>
+    </section>
     <div class="navigation"><%-include('./partials/navigation')%></div>
 </body>
 

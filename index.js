@@ -289,3 +289,35 @@ app.get('/deletePlant/:id', (req, res) => {
                 })
         })
 })
+
+app.post('/editPlant/:id', (req, res) => {
+    User.find({ googleId: req.user.googleId })
+        .catch(err => console.log(err))
+        .then((result) => {
+            let newPlants = result[0].plants
+            for (i = 0; i < newPlants.length; i++) {
+                if (newPlants[i]._id == req.params.id) {
+                    let plant = newPlants[i]
+                    let schedule = []
+                    if (typeof req.body.schedule == "string") {
+                        schedule.push(req.body.schedule)
+                    } else {
+                        for (j = 0; j < req.body.schedule.length; j++) {
+                            schedule.push(req.body.schedule[j])
+                        }
+                    }
+                    plant.name = req.body.name
+                    plant.species = req.body.species
+                    plant.picture = req.body.picture
+                    plant.schedule = schedule
+                    newPlants.splice(i, 1, plant)
+                }
+            }
+            User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: newPlants }, { useFindAndModify: false })
+                .catch(err => console.log(err))
+                .then(() => {
+                    console.log("Plant updated")
+                    res.redirect(`/plant/${req.params.id}`)
+                })
+        })
+})

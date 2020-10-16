@@ -28,7 +28,8 @@ body {
   background-color: #fbfdfc;
 }
 h1 {
-  font-size: 2em;
+  font-size: 1.5em;
+  width: 70%;
   font-weight: 700;
   background-color: #fbfdfc;
   letter-spacing: 1px;
