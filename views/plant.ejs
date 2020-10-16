@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <section id="plant">
+        <img src=<%= plant.picture %> alt="">
+        <h3><%= plant.name %> </h3>
+        <h4><%= plant.species %> </h4>
+        <div class="plantFlex">
+            <h4>Schedule:</h4>
+            <div class="schedule">
+                <% plant.schedule.forEach(day => { %>
+                <p><%= day %> </p>
+                <% }) %>
+            </div>
+        </div>
+        <a href="/deletePlant/<%= plant._id %> " class="mint">Delete</a>
+    </section>
+    <div class="navigation"><%-include('./partials/navigation')%></div>
+</body>
+
+</html>
