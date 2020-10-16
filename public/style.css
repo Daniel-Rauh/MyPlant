@@ -73,9 +73,6 @@ ul {
   margin: 0;
   list-style: none;
 }
-li {
-  margin-right: 40px;
-}
 .header{
     margin-left:10%;
 }
@@ -119,19 +116,30 @@ li {
 }
 /* /////////////////////////////////////////// */
 #new{
-    margin: 100px 20%;
+    margin: 10px 0 0;
+    padding: 0 5%;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    bottom: 10vh;
+    background: #fbfdfc;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    overflow: hidden;
+    transition: transform .6s;
+    transform-origin: bottom;
 }
 #new form{
-    width: 60%;
-    margin: 0 auto 100px;
+    width:80%;
+    margin: 0 auto;
 }
 #new form input, #new form textarea{
     font-family: 'Poppins', sans-serif;
-    width: 100%;
+    width: 85%;
     background: #E5E5E5;
     border: none;
     border-radius: 40px;
-    padding: 20px;
+    padding: 12px;
     margin-bottom: 10px;
 }
 #new form input::placeholder, #new form textarea::placeholder{
@@ -168,9 +176,6 @@ li {
 }
 img {
   justify-content: baseline;
-}
-li {
-  margin-right: 40px;
 }
 .watered{
   position: absolute;
@@ -230,9 +235,10 @@ footer{
 }
 #profileCard{
   margin-top: 8%;
+  min-height: 85vh;
 }
 #plant{
-  min-height: 74vh;
+  min-height: 80vh;
   padding: 5vh 10%;
 }
 #plant img{
@@ -267,4 +273,28 @@ footer{
   display: block;
   width: 20%;
   padding: 15px 50px;
+}
+.blurr{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 90vh;
+  background: rgba(0, 0, 0, .8);
+  z-index: 3;
+  transition: transform .6s;
+  transform-origin: top;
+}
+.hidden{
+  transform: scaleY(0);
+}
+#new h1{
+  margin:10px 0 20px;
+}
+.formFlex{
+  display: flex;
+  justify-content: space-between;
+}
+#new h6{
+  font-size: 1.8rem;
+  padding-top: 5px;
 }

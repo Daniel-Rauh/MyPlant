@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= room.name %> </title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/styletest.css">
 </head>
 
 <body>
+    <div class="blurr hidden"></div>
     <article class="headerflex">
         <div>
             <h1><%= room.name %> </h1>
         </div>
-        <div><img src="/icons8-pluss.svg" alt="" /></div>
+        <div><img src="/icons8-pluss.svg" alt="" onclick="showForm()" /></div>
     </article>
     <section id="roomGrid">
         <% plants.forEach(plant => { %>
@@ -26,12 +27,15 @@
         </a>
         <% }) %>
     </section>
-    <section id="new">
+    <section id="new" class="hidden">
         <form action="/newPlant/<%= room._id %>" method="POST">
-            <h1>Add Plant</h1>
+            <div class="formFlex">
+                <h1>Add Plant</h1>
+                <h6 onclick="showForm()">x</h6>
+            </div>
             <input type="text" name="name" id="name" placeholder="Plant name">
             <input type="text" name="species" id="species" placeholder="Species">
-            <input type="text" name="picture" id="picture" placeholder="picture">
+            <input type="text" name="picture" id="formPicture" placeholder="picture">
             <input type="file" accept="image/*" capture="camera" />
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
@@ -54,6 +58,17 @@
         </form>
     </section>
     <div class="navigation"><%-include('./partials/navigation')%></div>
+
+    <script>
+        const blurr = document.getElementsByClassName('blurr')
+        const form = document.getElementById('new')
+        function showForm() {
+            form.classList.toggle("hidden")
+            for (i = 0; i < blurr.length; i++) {
+                blurr[i].classList.toggle("hidden")
+            }
+        }
+    </script>
 </body>
 
 </html>

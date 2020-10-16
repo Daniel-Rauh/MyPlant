@@ -47,8 +47,8 @@ h1 {
 nav {
   background: #53ba89;
   color: #ffffff;
-  padding: 30px 20px 10px;
-  height: calc(10vh - 20px);
+  /* padding: 10px 20px 10px; */
+  /* height: calc(10vh - 20px); */
   justify-content: baseline;
 }
 nav a {
@@ -60,6 +60,7 @@ ul {
   display: flex;
   margin: 0;
   list-style: none;
+  height: 100%
 }
 img {
   justify-content: baseline;
@@ -106,6 +107,7 @@ img {
   position: fixed;
   bottom: 0;
   width: 100vw;
+  height: 10vh;
 }
 
 nav {
