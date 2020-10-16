@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= plant.name %> </title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
+    <div class="blurr hidden"></div>
     <section id="plant">
         <img src=<%= plant.picture %> alt="">
         <h3><%= plant.name %> </h3>
@@ -22,13 +23,17 @@
             </div>
         </div>
         <a href="/deletePlant/<%= plant._id %> " class="mint">Delete</a>
+        <a href="#" class="mint" onclick="showForm()">Edit</a>
     </section>
-    <section id="new">
+    <section id="new" class="hidden">
         <form action="/editPlant/<%= plant._id %>" method="POST">
-            <h1>Edit Plant</h1>
-            <input type="text" name="name" id="name" value=<%= plant.name %> >
-            <input type="text" name="species" id="species" value=<%= plant.species %> >
-            <input type="text" name="picture" id="picture" value=<%= plant.picture %> >
+            <div class="formFlex">
+                <h1>Edit Plant</h1>
+                <h6 onclick="showForm()">x</h6>
+            </div>
+            <input type="text" name="name" id="name" value=<%= plant.name %>>
+            <input type="text" name="species" id="species" value=<%= plant.species %>>
+            <input type="text" name="picture" id="formPicture" value=<%= plant.picture %>>
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
                 <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">
@@ -50,6 +55,16 @@
         </form>
     </section>
     <div class="navigation"><%-include('./partials/navigation')%></div>
+    <script>
+        const blurr = document.getElementsByClassName('blurr')
+        const form = document.getElementById('new')
+        function showForm() {
+            form.classList.toggle("hidden")
+            for (i = 0; i < blurr.length; i++) {
+                blurr[i].classList.toggle("hidden")
+            }
+        }
+    </script>
 </body>
 
 </html>
