@@ -8,7 +8,6 @@ a{
   text-decoration: none;
 }
 body {
-  height: 100vh;
   background-color: #fbfdfc;
 }
 #intro {
@@ -194,7 +193,7 @@ li {
 /* ********************************* */
 #picture{
   border-radius: 50%;
-  margin-left: 40%;
+  /* margin-left: 40%; */
   width: 30%;
 }
 .text {
