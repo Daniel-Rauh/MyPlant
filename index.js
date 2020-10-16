@@ -182,6 +182,12 @@ app.post('/newPlant/:id', (req, res) => {
     User.find({ googleId: req.user.googleId })
         .catch(err => console.log(err))
         .then((result) => {
+            let upload
+            for (i = 0; i < req.body.picture.length; i++) {
+                if (req.body.picture[i].length > 0) {
+                    upload = req.body.picture[i]
+                }
+            }
             let resultRoom = ""
             let newRooms = result[0].rooms
             let room
@@ -200,7 +206,7 @@ app.post('/newPlant/:id', (req, res) => {
                     room: resultRoom,
                     name: req.body.name,
                     species: req.body.species,
-                    picture: req.body.picture,
+                    picture: upload,
                     schedule: req.body.schedule,
                     needsWater: false
                 }
@@ -217,11 +223,12 @@ app.post('/newPlant/:id', (req, res) => {
                     room: resultRoom,
                     name: req.body.name,
                     species: req.body.species,
-                    picture: req.body.picture,
+                    picture: upload,
                     schedule: req.body.schedule,
                     needsWater: false
                 }
                 newPlants.push(newPlant)
+                console.log(newPlant)
                 User.findByIdAndUpdate(result[0]._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, {useFindAndModify: false})
                     .catch(err => console.log(err))
                     .then(() => {
