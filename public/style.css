@@ -46,17 +46,24 @@ h1 {
 nav {
   background: #53ba89;
   color: #ffffff;
-  padding: 20px 20px 10px;
-  /* height: calc(10vh - 20px); */
-  justify-content: center;
+  /* padding: 14px 71px 6px; */
+
 }
 nav a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 1.4em;
+  /* font-size: 1.4em; */
+}
+nav img{
+   width: 40px;
+   margin-top: 8px;
+   margin-left: 7px;
 }
 ul {
-  display: flex;
+   display: flex;
+  justify-content: space-around;
+  width: 100%;
+    height: 60px;
   margin: 0;
   list-style: none;
 }
@@ -228,6 +235,7 @@ li {
 }
 footer{
   margin-top: 45%;
+
 }
 #profileCard{
   margin-top: 8%;
