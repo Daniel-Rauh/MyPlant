@@ -141,20 +141,20 @@ nav img:hover {
 
 /*new Add Room Form*/
 
-.newRoomForm {
+#newRoomForm {
   display: block;
   text-align: center;
   border: 1px solid black;
-  width: 55vh;
+  width: 75vw;
   margin: 0 auto;
   padding-top: 10%;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   background: #ffffff;
-  
+  height: 50vh;
 }
 
-.newRoomForm input:first-of-type {
+#newRoomForm input:first-of-type {
   width: 30vh;
   height: 40px;
   border-radius: 10px;
@@ -164,7 +164,7 @@ nav img:hover {
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.newRoomForm input:last-of-type {
+#newRoomForm input:last-of-type {
   width: 20vh;
   height: 40px;
   border-radius: 40px;
@@ -181,4 +181,12 @@ nav img:hover {
 }
 .NewRoomFlex h1 {
   margin-right: 5%;
+}
+.buttonRoom {
+  background: white;
+  border: 1px solid white;
+  border-radius: 40px;
+}
+button:focus {
+  outline: 0;
 }
