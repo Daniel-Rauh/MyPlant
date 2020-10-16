@@ -70,7 +70,7 @@ ul {
   justify-content: space-around;
   width: 100%;
     height: 60px;
-  margin: 0;
+  margin: 11px;
   list-style: none;
 }
 .header{
@@ -151,6 +151,14 @@ ul {
     color: #ffffff;
     border-radius: 40px;
 }
+#species {
+     width: 94%;
+    background: #E5E5E5;
+    border: none;
+    border-radius: 40px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
 /* ****************************************************** */
 .weekDays-selector{
   margin: 20px 0;
@@ -196,10 +204,11 @@ img {
   margin-bottom: 20px;
 }
 /* ********************************* */
-#picture{
+#bild{
   border-radius: 50%;
   margin-left: 40%;
   width: 30%;
+
 }
 .text {
   width: 200px;
