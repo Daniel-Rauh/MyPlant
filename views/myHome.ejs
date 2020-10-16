@@ -12,20 +12,22 @@
       <div>
         <h1>My Home</h1>
       </div>
-      <div><img src="icons8-pluss.svg" onclick="ShowIt()" alt="" /></div>
+      <button>
+        <img src="icons8-pluss.svg" onclick="myFunction()" alt="" />
+      </button>
     </article>
     <% data.rooms.forEach(room => { %>
     <a href="/room/<%= room._id %> " class="homeRoom">
       <div class="boxshadows">
         <h3><%= room.name %></h3>
-        <p><%= room.plants %>  plants</p>
+        <p><%= room.plants %> plants</p>
       </div>
     </a>
     <% }) %>
-    <section class="newRoomForm">
+    <section id="newRoomForm">
       <div class="NewRoomFlex">
         <h1>Add Room</h1>
-        <img src="icons8x.png" alt="" />
+        <img src="icons8x.png" onclick="myFunction()" alt="" />
       </div>
 
       <form action="/newRoom" method="POST">
@@ -34,17 +36,17 @@
         <input type="submit" value="Add" />
       </form>
     </section>
-    <div class="navigation"><%-include('./partials/navigation')%></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-      window.onload = function () {
-        function ShowIt() {
-          console.log("show");
-          var obj = document.getElementById("hid");
-          if (obj.style.display == "block") obj.style.display = "none";
-          else obj.style.display = "block";
-        }
-      };
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("section").slideToggle();
+        });
+      });
     </script>
+
+    <div class="navigation"><%-include('./partials/navigation')%></div>
   </body>
 </html>
