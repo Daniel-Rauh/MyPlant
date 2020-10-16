@@ -8,7 +8,6 @@ a{
   text-decoration: none;
 }
 body {
-  height: 100vh;
   background-color: #fbfdfc;
 }
 #intro {
@@ -73,9 +72,6 @@ ul {
     height: 60px;
   margin: 0;
   list-style: none;
-}
-li {
-  margin-right: 40px;
 }
 .header{
     margin-left:10%;
@@ -170,9 +166,6 @@ li {
 img {
   justify-content: baseline;
 }
-li {
-  margin-right: 40px;
-}
 .watered{
   position: absolute;
   width: 100%;
@@ -231,6 +224,7 @@ footer{
 }
 #profileCard{
   margin-top: 8%;
+  min-height: 85vh;
 }
 #plant{
   min-height: 74vh;
@@ -263,12 +257,9 @@ footer{
   width: 20%;
   padding: 15px 50px;
 }
-<<<<<<< HEAD
 #profileCard a{
   margin: 20px auto;
   display: block;
   width: 20%;
   padding: 15px 50px;
 }
-=======
->>>>>>> 6c8d85b750fc85d2b64d038cb0b81d9cc9ac9464
