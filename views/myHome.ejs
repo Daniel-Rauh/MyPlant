@@ -25,7 +25,7 @@
     </a>
     <% }) %>
     <button class="buttonRoom">
-      <img src="icons8-pluss.svg" onclick="myFunction()" alt="" />
+      <img src="icons8-pluss.svg" alt="" />
     </button>
     <section id="new" class="hidden">
       <div class="formFlex">
@@ -44,7 +44,8 @@
         sign.
       </p>
     </section>
-    <section id="newRoomForm"></section>
+
+    <section id="newRoomForm">
       <div class="NewRoomFlex">
         <h1>Add Room</h1>
         <button class="buttonRoom">
@@ -70,6 +71,8 @@
             $("section").slideUp();
           }
         });
+      });
+
       const blurr = document.getElementsByClassName("blurr");
       const form = document.getElementById("new");
       function showForm() {
