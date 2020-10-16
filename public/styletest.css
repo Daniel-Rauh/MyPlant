@@ -5,7 +5,6 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100vh;
   background-color: #fbfdfc;
 }
 #intro {
@@ -108,6 +107,7 @@ img {
   bottom: 0;
   width: 100vw;
   height: 10vh;
+  z-index: 6;
 }
 
 nav {
@@ -188,7 +188,15 @@ nav img:hover {
   background: white;
   border: 1px solid white;
   border-radius: 40px;
+  margin: auto;
+  display: block;
 }
 button:focus {
   outline: 0;
+}
+.buttonRoom img{
+  width: 50px;
+}
+#new p{
+  font-size: 1rem;
 }

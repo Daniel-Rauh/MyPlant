@@ -7,13 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styletest.css">
     <title>My Plant</title>
 </head>
 
 <body>
+    <div class="blurr hidden" onclick="showForm()"></div>
     <section id="hero">
         <p><%= today %></p>
-        <h1>My Plants</h1>
+        <div class="formFlex">
+            <h1>My Plants</h1>
+            <span onclick="showForm()">?</span>
+        </div>
         <% data.rooms.forEach(room => { %>
         <div class="room">
             <h3><%= room.name %> </h3>
@@ -36,10 +41,29 @@
         </div>
         <% }) %>
     </section>
-
+    <section id="new" class="hidden">
+        <div class="formFlex">
+            <h1>Info</h1>
+            <h6 onclick="showForm()">x</h6>
+        </div>
+        <p>This is your home page! It will list all the plants that need watering today.</p>
+        <br>
+        <p>Water your plants by clicking on them. Once watered they will turn <span class="blue">blue</span>! Make sure not to forget watering your plants in real life as well before clicking, or you're gonna have a bad time!</p>
+        <br>
+        <p>If this is your first time here everything will look very empty. Head over to your room menu by clicking the little house below!</p>
+    </section>
+    <div class="navigation"><%-include('./partials/navigation')%></div>
 </body>
-<footer>
-    <%-include('./partials/navigation')%>
-</footer>
+
+<script>
+    const blurr = document.getElementsByClassName('blurr')
+    const form = document.getElementById('new')
+    function showForm() {
+        form.classList.toggle("hidden")
+        for (i = 0; i < blurr.length; i++) {
+            blurr[i].classList.toggle("hidden")
+        }
+    }
+</script>
 
 </html>
