@@ -36,11 +36,14 @@
             <h1>Info</h1>
             <h6 onclick="showInfo()">x</h6>
         </div>
-        <p>This screen shows all plants in this room. Click on them to get a more detailed view plus edit/delete options.</p>
+        <p>This screen shows all plants in this room. Click on them to get a more detailed view plus edit/delete
+            options.</p>
         <br>
-        <p>If this is still empty or you got a new plant that needs watering, click the plus sign to add a new plant.</p>
+        <p>If this is still empty or you got a new plant that needs watering, click the plus sign to add a new plant.
+        </p>
         <br>
-        <p>p.s.: Don't forget to add your watering schedule by selecting the corresponding circles in the Add-Menu. Don't worry, you can edit it later</p>
+        <p>p.s.: Don't forget to add your watering schedule by selecting the corresponding circles in the Add-Menu.
+            Don't worry, you can edit it later</p>
     </section>
     <section id="new" class="hidden">
         <form action="/newPlant/<%= room._id %>" method="POST">
@@ -51,10 +54,12 @@
             <input type="text" name="name" id="name" placeholder="Plant name">
             <!-- <input type="text" name="species" id="species" placeholder="Species"> -->
             <select id="species" name="species">
-                <option value="seed">Seed</option>
-                <option value="cactus">Cactus</option>
-                <option value="seedless">Seedless</option>
-                <option value="plant">Plant</option>
+                <option value="roomplant">Roomplant</option>
+                <option value="bamboo">Bamboo</option>
+                <option value="perennials">Perennials</option>
+                <option value="shrubs">Shrubs</option>
+                <option value="hedges">Hedges</option>
+                <option value="other">Other</option>
             </select>
             <input type="text" name="picture" id="formPicture" placeholder="picture">
             <input type="file" accept="image/*" capture="camera" />
