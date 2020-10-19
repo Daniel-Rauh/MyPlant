@@ -5,8 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Home</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/styletest.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/styletest.css">
 </head>
 
 <body>
@@ -39,20 +41,35 @@
     <br>
     <p>If it's still empty try adding your first room by clicking on the plus sign.</p>
   </section>
-  <!-- <section id="newRoomForm"></section>
-      <div class="NewRoomFlex">
-        <h1>Add Room</h1>
-        <button class="buttonRoom">
-          <img src="icons8x.png" alt="" />
-        </button>
-      </div>
+  <section id="newRoomForm"></section>
+  <div class="NewRoomFlex">
+    <h1>Add Room</h1>
+    <button class="buttonRoom">
+      <img src="icons8x.png" alt="" />
+    </button>
+  </div>
 
-      <form action="/newRoom" method="POST">
-        <input type="text" name="name" id="name" placeholder="Room Name" />
-        <br />
-        <input type="submit" value="Add" />
-      </form>
-    </section> -->
+  <form action="/newRoom" method="POST">
+    <input type="text" name="name" id="name" placeholder="Room Name" />
+    <br />
+    <input type="submit" value="Add" />
+  </form>
+  </section>
+  <!-- <textarea id="myText">
+       Hi, du muss heute giessen!
+    </textarea>
+  <button onclick="sendMail(); return false">Send</button>
+  <script>
+    function sendMail() {
+      var link = "mailto:heinrich.inna@gmail.com"
+        + "?cc=myCCaddress@example.com"
+        + "&subject=" + encodeURIComponent("This is my subject")
+        + "&body=" + encodeURIComponent(document.getElementById('myText').value)
+        ;
+
+      window.location.href = link;
+    }
+  </script> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

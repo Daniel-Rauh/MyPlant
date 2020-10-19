@@ -7,6 +7,7 @@ const passportSetup = require('./config/passportSetup')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
 const User = require('./models/user')
+const nodemailer = require("nodemailer");
 
 app.use(cookieSession({
     name: 'session',
@@ -141,12 +142,12 @@ app.get('/plant/:id', (req, res) => {
         .catch(err => console.log(err))
         .then((result) => {
             let plant
-            for (i = 0; i < result[0].plants.length; i++){
+            for (i = 0; i < result[0].plants.length; i++) {
                 if (result[0].plants[i]._id == req.params.id) {
                     plant = result[0].plants[i]
                 }
             }
-            res.status(200).render('plant', {plant: plant})
+            res.status(200).render('plant', { plant: plant })
         })
 })
 
@@ -159,7 +160,7 @@ app.post('/newRoom', (req, res) => {
                 let newRoom = req.body
                 newRoom.plants = 0
                 newRooms.push(newRoom)
-                User.findByIdAndUpdate(result[0]._id, { rooms: newRooms }, {useFindAndModify: false})
+                User.findByIdAndUpdate(result[0]._id, { rooms: newRooms }, { useFindAndModify: false })
                     .then((result) => {
                         console.log('Rooms updated')
                         res.status(201).redirect('/myHome')
@@ -169,7 +170,7 @@ app.post('/newRoom', (req, res) => {
                 let newRoom = req.body
                 newRoom.plants = 0
                 newRooms.push(newRoom)
-                User.findByIdAndUpdate(result[0]._id, { rooms: newRooms }, {useFindAndModify: false})
+                User.findByIdAndUpdate(result[0]._id, { rooms: newRooms }, { useFindAndModify: false })
                     .then((result) => {
                         console.log('Rooms updated')
                         res.status(201).redirect('/myHome')
@@ -205,7 +206,7 @@ app.post('/newPlant/:id', (req, res) => {
                     needsWater: false
                 }
                 newPlants.push(newPlant)
-                User.findByIdAndUpdate(result._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, {useFindAndModify: false})
+                User.findByIdAndUpdate(result._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, { useFindAndModify: false })
                     .catch(err => console.log(err))
                     .then(() => {
                         console.log('Plants updated')
@@ -222,7 +223,7 @@ app.post('/newPlant/:id', (req, res) => {
                     needsWater: false
                 }
                 newPlants.push(newPlant)
-                User.findByIdAndUpdate(result[0]._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, {useFindAndModify: false})
+                User.findByIdAndUpdate(result[0]._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, { useFindAndModify: false })
                     .catch(err => console.log(err))
                     .then(() => {
                         console.log('Plants updated')
@@ -321,3 +322,42 @@ app.post('/editPlant/:id', (req, res) => {
                 })
         })
 })
+app.use((req, res) => {
+    res.status(404)
+    res.render('404')
+})
+
+// // async..await is not allowed in global scope, must use a wrapper
+// async function main() {
+//     // Generate test SMTP service account from ethereal.email
+//     // Only needed if you don't have a real mail account for testing
+//     let testAccount = await nodemailer.createTestAccount();
+
+//     // create reusable transporter object using the default SMTP transport
+//     let transporter = nodemailer.createTransport({
+//         host: "smtp.ethereal.email",
+//         port: 587,
+//         secure: false, // true for 465, false for other ports
+//         auth: {
+//             user: testAccount.user, // generated ethereal user
+//             pass: testAccount.pass, // generated ethereal password
+//         },
+//     });
+//     // send mail with defined transport object
+//     let info = await transporter.sendMail({
+//         from: '"Fred Foo 👻" <foo@example.com>', // sender address
+//         to: "heinrich.inna@gmail.com", // list of receivers
+//         subject: "Hello ✔", // Subject line
+//         text: "Hello world?", // plain text body
+//         html: "<b>Hello world?</b>", // html body
+//     });
+
+//     console.log("Message sent: %s", info.messageId);
+//     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+//     // Preview only available when sending through an Ethereal account
+//     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+//     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+// }
+
+// main().catch(console.error);

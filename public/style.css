@@ -52,7 +52,7 @@ h1 {
 nav {
   background: #53ba89;
   color: #ffffff;
-  /* padding: 14px 71px 6px; */
+  padding: 5px 20px 10px;
 
 }
 nav a {
@@ -358,4 +358,82 @@ span{
 }
 .plantHeaderFlex span{
   margin-right: 0px;
+}
+/* ///////////////////////////////404//////////// */
+#notFound{
+  width: 100%;
+  /* display: flex;
+   flex-direction: row;
+   justify-content: center;
+  text-align: center; */
+  /* margin: 40% auto; */
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  /* position: relative; */
+  top: 80%;
+  left: 30%;
+  /* transform: translate(-50%, -50%); */
+}
+.content__error {
+  max-width: 370px;
+  margin: 20% auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.content__error > div p {
+  font-size: 9em;
+  color: black;
+  font-weight: 800;
+}
+.content__error .circle {
+  width: 175px;
+  height: 175px;
+  background: #ccc url("https://media.giphy.com/media/Qkdk0yIA7b4T6/giphy.gif") center center;
+  background-size: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+
+.content__caption {
+  margin-top: 20px;
+}
+.content__caption p.caption {
+  text-align: center;
+  font-size: 1.6em;
+  color:#53ba89;
+  /* white-space: pre; */
+}
+.content__caption p.subcaption {
+  text-align: center;
+  font-size: 1.1em;
+  color: #464646;
+}
+.content__caption a {
+  font-size: 1.1em;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  margin-top: 60px;
+  font-weight: 800;
+  text-decoration: none;
+  position: relative;
+}
+.content__caption a::after {
+  content: "";
+  width: 40%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: width 0.3s ease;
+}
+.content__caption a:hover:after {
+  width: 100%;
 }
