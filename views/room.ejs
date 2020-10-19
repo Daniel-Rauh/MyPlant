@@ -43,7 +43,7 @@
         <p>p.s.: Don't forget to add your watering schedule by selecting the corresponding circles in the Add-Menu. Don't worry, you can edit it later</p>
     </section>
     <section id="new" class="hidden">
-        <form action="/newPlant/<%= room._id %>" method="POST">
+        <form action="/newPlant/<%= room._id %>" method="POST" enctype="multipart/form-data">
             <div class="formFlex">
                 <h1>Add Plant</h1>
                 <h6 onclick="showForm()">x</h6>
@@ -61,10 +61,10 @@
             <a class="uploadButton selectedButton" onclick="showURL()" href="#">URL</a>
             <a class="uploadButton" onclick="showFile()" href="#">File</a>
             <a class="uploadButton" onclick="showCamera()" href="#">Camera</a>
-            <input type="text" name="picture" id="pictureUrl" placeholder="URL">
-            <input type="file" name="picture" id="pictureFile" class="hide">
+            <input type="text" name="pictureUrl" id="pictureUrl" placeholder="URL">
+            <input type="file" name="pictureFile" id="pictureFile" class="hide">
             <label for="pictureCameraHidden" class="cameraButton hide" id="pictureCamera">Open Camera</label>
-            <input type="file" accept="image/*" capture="camera" id="pictureCameraHidden" name="picture"/>
+            <input type="file" accept="image/*" capture="camera" id="pictureCameraHidden" name="pictureCamera"/>
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
                 <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">

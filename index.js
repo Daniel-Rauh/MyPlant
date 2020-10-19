@@ -7,6 +7,9 @@ const passportSetup = require('./config/passportSetup')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
 const User = require('./models/user')
+const formidable = require("formidable");
+const path = require("path");
+const fs = require('fs')
 
 app.use(cookieSession({
     name: 'session',
@@ -15,6 +18,7 @@ app.use(cookieSession({
 }))
 
 app.use(express.static('public'))
+app.use(express.static("uploads"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
@@ -178,65 +182,87 @@ app.post('/newRoom', (req, res) => {
         })
 })
 
-app.post('/newPlant/:id', (req, res) => {
-    User.find({ googleId: req.user.googleId })
-        .catch(err => console.log(err))
-        .then((result) => {
-            let upload
-            for (i = 0; i < req.body.picture.length; i++) {
-                if (req.body.picture[i].length > 0) {
-                    upload = req.body.picture[i]
+app.post('/newPlant/:id', (req, res, next) => {
+    const form = formidable({
+        multiples: true,
+        uploadDir: "./uploads",
+        keepExtensions: true,
+    })
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        if (files.pictureFile.size === 0) {
+            fs.unlink(`./uploads/${path.basename(files.pictureFile.path)}`, () => {
+                console.log("Unused file deleted")
+            })
+        }
+        if (files.pictureCamera.size === 0) {
+            fs.unlink(`./uploads/${path.basename(files.pictureCamera.path)}`, () => {
+                console.log("Unused file deleted")
+            })
+        }
+        let pathname = ''
+        if (fields.pictureUrl.length > 0) {
+            pathname = fields.pictureUrl
+        } else if (files.pictureCamera.size > 0) {
+            pathname = `/${path.basename(files.pictureCamera.path)}`
+        } else if (files.pictureFile.size > 0) {
+            pathname = `/${path.basename(files.pictureFile.path)}`
+        }
+        User.find({ googleId: req.user.googleId })
+            .catch(err => console.log(err))
+            .then((result) => {
+                let resultRoom = ""
+                let newRooms = result[0].rooms
+                let room
+                let newTotal = result[0].totalPlants + 1
+                for (let i = 0; i < result[0].rooms.length; i++) {
+                    if (result[0].rooms[i]._id == req.params.id) {
+                        room = result[0].rooms[i]
+                        resultRoom = room.name
+                        room.plants++
+                        newRooms[i] = room
+                    }
                 }
-            }
-            let resultRoom = ""
-            let newRooms = result[0].rooms
-            let room
-            let newTotal = result[0].totalPlants + 1
-            for (let i = 0; i < result[0].rooms.length; i++) {
-                if (result[0].rooms[i]._id == req.params.id) {
-                    room = result[0].rooms[i]
-                    resultRoom = room.name
-                    room.plants++
-                    newRooms[i] = room
+                if (result[0].plants === undefined) {
+                    let newPlants = []
+                    let newPlant = {
+                        room: resultRoom,
+                        name: fields.name,
+                        species: fields.species,
+                        picture: pathname,
+                        schedule: fields.schedule,
+                        needsWater: false
+                    }
+                    newPlants.push(newPlant)
+                    User.findByIdAndUpdate(result._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, { useFindAndModify: false })
+                        .catch(err => console.log(err))
+                        .then(() => {
+                            console.log('Plants updated')
+                            res.status(200).redirect(`/room/${req.params.id}`)
+                        })
+                } else {
+                    let newPlants = result[0].plants
+                    let newPlant = {
+                        room: resultRoom,
+                        name: fields.name,
+                        species: fields.species,
+                        picture: pathname,
+                        schedule: fields.schedule,
+                        needsWater: false
+                    }
+                    newPlants.push(newPlant)
+                    User.findByIdAndUpdate(result[0]._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, { useFindAndModify: false })
+                        .catch(err => console.log(err))
+                        .then(() => {
+                            console.log('Plants updated')
+                            res.status(200).redirect(`/room/${req.params.id}`)
+                        })
                 }
-            }
-            if (result[0].plants === undefined) {
-                let newPlants = []
-                let newPlant = {
-                    room: resultRoom,
-                    name: req.body.name,
-                    species: req.body.species,
-                    picture: upload,
-                    schedule: req.body.schedule,
-                    needsWater: false
-                }
-                newPlants.push(newPlant)
-                User.findByIdAndUpdate(result._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, {useFindAndModify: false})
-                    .catch(err => console.log(err))
-                    .then(() => {
-                        console.log('Plants updated')
-                        res.status(200).redirect(`/room/${req.params.id}`)
-                    })
-            } else {
-                let newPlants = result[0].plants
-                let newPlant = {
-                    room: resultRoom,
-                    name: req.body.name,
-                    species: req.body.species,
-                    picture: upload,
-                    schedule: req.body.schedule,
-                    needsWater: false
-                }
-                newPlants.push(newPlant)
-                console.log(newPlant)
-                User.findByIdAndUpdate(result[0]._id, { plants: newPlants, rooms: newRooms, totalPlants: newTotal }, {useFindAndModify: false})
-                    .catch(err => console.log(err))
-                    .then(() => {
-                        console.log('Plants updated')
-                        res.status(200).redirect(`/room/${req.params.id}`)
-                    })
-            }
-        })
+            })
+    })
 })
 
 app.get('/waterPlant/:id', (req, res) => {
@@ -328,4 +354,3 @@ app.post('/editPlant/:id', (req, res) => {
                 })
         })
 })
-//test
