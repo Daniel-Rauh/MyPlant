@@ -194,12 +194,12 @@ app.post('/newPlant/:id', (req, res, next) => {
             return;
         }
         if (files.pictureFile.size === 0) {
-            fs.unlink(`/${path.basename(files.pictureFile.path)}`, () => {
+            fs.unlink(`./uploads/${path.basename(files.pictureFile.path)}`, () => {
                 console.log("Unused file deleted")
             })
         }
         if (files.pictureCamera.size === 0) {
-            fs.unlink(`/${path.basename(files.pictureCamera.path)}`, () => {
+            fs.unlink(`./uploads/${path.basename(files.pictureCamera.path)}`, () => {
                 console.log("Unused file deleted")
             })
         }
