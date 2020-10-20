@@ -4,7 +4,7 @@
   scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
 }
-a{
+a {
   text-decoration: none;
 }
 body {
@@ -29,7 +29,7 @@ body {
   /* top: 80%; */
   background-color: #fbfdfc;
 }
-.intro img{
+.intro img {
   height: 75vh;
   object-fit: cover;
 }
@@ -53,121 +53,128 @@ nav {
   background: #53ba89;
   color: #ffffff;
   padding: 5px 20px 10px;
-
 }
 nav a {
   text-decoration: none;
   color: #ffffff;
   /* font-size: 1.4em; */
 }
-nav img{
-   width: 40px;
-   margin-top: 8px;
-   margin-left: 7px;
+nav img {
+  width: 40px;
+  margin-top: 8px;
+  margin-left: 7px;
 }
 ul {
-   display: flex;
+  display: flex;
   justify-content: space-around;
   width: 100%;
-    height: 60px;
+  height: 60px;
   margin: 11px;
   list-style: none;
 }
-.header{
-    margin-left:10%;
+.header {
+  margin-left: 10%;
 }
-#hero{
-    padding: 0 0 20vh;
+#hero {
+  padding: 0 0 20vh;
 }
-.room{
+#hero p {
+  padding-left: 10%;
+  font-size: 24px;
+  color: #4e4b66;
+}
+
+.room {
   margin-top: 5vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 5% 10%;
 }
-.plantCard{
+.plantCard {
   width: 100%;
   height: 20vh;
-    /* background: #fbfdfc; */
-    transition: transform .2s, box-shadow .2s;
-    border-radius: 40px;
-    position: relative;
+  /* background: #fbfdfc; */
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 40px;
+  position: relative;
 }
-.plantCard:hover{
-    /* box-shadow: 0 0 12px 2px 'rgb(83, 186, 137)'; */
-    transform: scale(1.05);
+.plantCard:hover {
+  /* box-shadow: 0 0 12px 2px 'rgb(83, 186, 137)'; */
+  transform: scale(1.05);
 }
-.plantCard img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20%;
+.plantCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20%;
 }
-.plantCard p{
-    font-weight: 100;
-    /* padding: 20px 40px; */
-    text-align:center;
-    color:#80849e;
+.plantCard p {
+  font-weight: 100;
+  /* padding: 20px 40px; */
+  text-align: center;
+  color: #80849e;
 }
-.room h3{
-  color:#53ba89;
+.room h3 {
+  color: #53ba89;
   grid-column: 1/-1;
 }
 /* /////////////////////////////////////////// */
-#new{
-    margin: 10px 0 0;
-    padding: 0 5%;
-    width: 90%;
-    position: absolute;
-    z-index: 4;
-    bottom: 10vh;
-    background: #fbfdfc;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
-    overflow: hidden;
-    transition: transform .6s;
-    transform-origin: bottom;
+#new {
+  margin: 10px 0 0;
+  padding: 0 5%;
+  width: 90%;
+  position: absolute;
+  z-index: 4;
+  bottom: 10vh;
+  background: #fbfdfc;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  overflow: hidden;
+  transition: transform 0.6s;
+  transform-origin: bottom;
 }
-#new form{
-    width:80%;
-    margin: 0 auto;
+#new form {
+  width: 80%;
+  margin: 0 auto;
 }
-#new form input, #new form textarea{
-    font-family: 'Poppins', sans-serif;
-    width: 85%;
-    background: #E5E5E5;
-    border: none;
-    border-radius: 40px;
-    padding: 12px;
-    margin-bottom: 10px;
+#new form input,
+#new form textarea {
+  font-family: "Poppins", sans-serif;
+  width: 85%;
+  background: #e5e5e5;
+  border: none;
+  border-radius: 40px;
+  padding: 12px;
+  margin-bottom: 10px;
 }
-#new form input::placeholder, #new form textarea::placeholder{
-    font-family: 'Poppins', sans-serif;
+#new form input::placeholder,
+#new form textarea::placeholder {
+  font-family: "Poppins", sans-serif;
 }
-#new form input:last-of-type{
+#new form input:last-of-type {
   width: 200px;
-    background:#53ba89;
-    color: #ffffff;
-    border-radius: 40px;
+  background: #53ba89;
+  color: #ffffff;
+  border-radius: 40px;
 }
 #species {
-     width: 94%;
-    background: #E5E5E5;
-      color: grey;
-    border: none;
-    border-radius: 40px;
-    padding: 12px;
-    margin-bottom: 10px;
+  width: 94%;
+  background: #e5e5e5;
+  color: grey;
+  border: none;
+  border-radius: 40px;
+  padding: 12px;
+  margin-bottom: 10px;
 }
 /* ****************************************************** */
-.weekDays-selector{
+.weekDays-selector {
   margin: 20px 0;
 }
 .weekDays-selector input {
-  display: none!important;
+  display: none !important;
 }
-.weekDays-selector input[type=checkbox] + label {
+.weekDays-selector input[type="checkbox"] + label {
   display: inline-block;
   border-radius: 40px;
   background: #8fdaca;
@@ -179,37 +186,36 @@ ul {
   cursor: pointer;
   color: #ffffff;
 }
-.weekDays-selector input[type=checkbox]:checked + label {
+.weekDays-selector input[type="checkbox"]:checked + label {
   background: #1ebb88;
   color: #ffffff;
 }
 img {
   justify-content: baseline;
 }
-.watered{
+.watered {
   position: absolute;
   width: 100%;
   height: 20vh;
-  background:#00acee;
+  background: #00acee;
   border-radius: 20%;
-  opacity: .5;
+  opacity: 0.5;
   z-index: 2;
 }
-#roomGrid{
+#roomGrid {
   padding: 5vh 10%;
   gap: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-#roomGrid a{
+#roomGrid a {
   margin-bottom: 20px;
 }
 /* ********************************* */
-#bild{
+#bild {
   border-radius: 50%;
   margin-left: 40%;
   width: 30%;
-
 }
 .text {
   width: 200px;
@@ -218,39 +224,38 @@ img {
   justify-content: space-evenly;
   margin-left: 25%;
 }
-.text p{
+.text p {
   color: #80849e;
 }
-.icons{
+.icons {
   display: flex;
   flex-direction: row;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: flex-end;
   margin-top: 40px;
 }
-.icons p{
+.icons p {
   display: flex;
   justify-content: baseline;
 }
-.days{
+.days {
   display: flex;
   flex-direction: row;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: flex-end;
   margin-top: 40px;
 }
-footer{
+footer {
   margin-top: 45%;
-
 }
-#profileCard{
+#profileCard {
   margin-top: 8%;
   min-height: 85vh;
 }
-#plant{
+#plant {
   padding: 0 10%;
 }
-#plant img{
+#plant img {
   display: block;
   margin: auto;
   width: 80%;
@@ -259,105 +264,107 @@ footer{
   object-fit: cover;
   margin-bottom: 20px;
 }
-#plant h3{
+#plant h3 {
   margin-bottom: 10px;
 }
-#plant h4{
+#plant h4 {
   margin-bottom: 6px;
 }
-.plantFlex{
+.plantFlex {
   display: flex;
 }
-.schedule{
+.schedule {
   padding-left: 10px;
 }
-#plant a{
+#plant a {
   margin-top: 20px;
   display: block;
   width: 20%;
   padding: 12px 50px;
 }
-#profileCard a{
+#profileCard a {
   margin: 20px auto;
   display: block;
   width: 20%;
   padding: 15px 50px;
 }
-.blurr{
+.blurr {
   position: fixed;
   top: 0;
   width: 100vw;
   height: 90vh;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 3;
-  transition: transform .6s;
+  transition: transform 0.6s;
   transform-origin: top;
 }
-.blurr2{
+.blurr2 {
   position: fixed;
   top: 0;
   width: 100vw;
   height: 90vh;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 3;
-  transition: transform .6s;
+  transition: transform 0.6s;
   transform-origin: top;
 }
-.hidden{
+.hidden {
   transform: scaleY(0);
 }
-#new h1{
-  margin:10px 0 20px;
+#new h1 {
+  margin: 10px 0 20px;
 }
-.formFlex{
+.formFlex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  font-size: 30px;
+  padding-left: 3%;
 }
-.formFlex h6{
+.formFlex h6 {
   font-size: 1.8rem;
   padding-bottom: 13px;
 }
-.question{
+.question {
   font-size: 1.5rem;
   margin-right: 20px;
   border-radius: 50%;
 }
-.blue{
+.blue {
   color: #00acee;
 }
-#new p{
+#new p {
   font-size: 1rem;
 }
-#new p:last-of-type{
+#new p:last-of-type {
   margin-bottom: 10px;
 }
-#info{
-    margin: 10px 0 0;
-    padding: 0 5%;
-    width: 90%;
-    position: absolute;
-    z-index: 4;
-    bottom: 10vh;
-    background: #fbfdfc;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
-    overflow: hidden;
-    transition: transform .6s;
-    transform-origin: bottom;
+#info {
+  margin: 10px 0 0;
+  padding: 0 5%;
+  width: 90%;
+  position: absolute;
+  z-index: 4;
+  bottom: 10vh;
+  background: #fbfdfc;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  overflow: hidden;
+  transition: transform 0.6s;
+  transform-origin: bottom;
 }
-#info p{
+#info p {
   font-size: 1rem;
 }
-#info p:last-of-type{
+#info p:last-of-type {
   margin-bottom: 10px;
 }
-.plantHeaderFlex{
+.plantHeaderFlex {
   display: flex;
   justify-content: space-between;
   padding: 20px 0 10px;
 }
-.plantHeaderFlex span{
+.plantHeaderFlex span {
   margin-right: 0px;
 }
 .uploadButton {
@@ -368,14 +375,14 @@ footer{
   display: inline-block;
   color: #000000;
 }
-.selectedButton{
+.selectedButton {
   background: #1ebb88;
   color: #fbfdfc;
 }
-#pictureCameraHidden{
+#pictureCameraHidden {
   display: none;
 }
-.cameraButton{
+.cameraButton {
   border: 1px solid #53ba89;
   display: inline-block;
   padding: 6px 12px;
@@ -384,11 +391,11 @@ footer{
   color: #fbfdfc;
   margin-bottom: 10px;
 }
-.hide{
+.hide {
   display: none;
 }
 /* ///////////////////////////////404//////////// */
-#notFound{
+#notFound {
   width: 100%;
   /* display: flex;
    flex-direction: row;
@@ -422,12 +429,13 @@ footer{
   width: 175px;
   height: 175px;
   /* background: #ccc url("https://media.giphy.com/media/Qkdk0yIA7b4T6/giphy.gif") center center; */
-    background: #ccc url("https://media.giphy.com/media/3o7TKp3cFUIxiCW8KI/giphy.gif") center center;
+  background: #ccc
+    url("https://media.giphy.com/media/3o7TKp3cFUIxiCW8KI/giphy.gif") center
+    center;
   background-size: cover;
   border-radius: 50%;
   position: relative;
 }
-
 
 .content__caption {
   margin-top: 20px;
@@ -435,7 +443,7 @@ footer{
 .content__caption p.caption {
   text-align: center;
   font-size: 1.6em;
-  color:#53ba89;
+  color: #53ba89;
   /* white-space: pre; */
 }
 .content__caption p.subcaption {
@@ -468,11 +476,11 @@ footer{
 }
 /* *********************** */
 @media only screen and (max-width: 1200px) {
- .navigation {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 10vh;
-  z-index: 6;
-}
+  .navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 10vh;
+    z-index: 6;
+  }
 }
