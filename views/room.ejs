@@ -16,7 +16,7 @@
         <div>
             <h1><%= room.name %> </h1>
         </div>
-        <span onclick="showInfo()">?</span>
+        <span onclick="showInfo()" class="question">?</span>
     </article>
     <section id="roomGrid">
         <% plants.forEach(plant => { %>
@@ -46,7 +46,7 @@
             Don't worry, you can edit it later</p>
     </section>
     <section id="new" class="hidden">
-        <form action="/newPlant/<%= room._id %>" method="POST">
+        <form action="/newPlant/<%= room._id %>" method="POST" enctype="multipart/form-data">
             <div class="formFlex">
                 <h1>Add Plant</h1>
                 <h6 onclick="showForm()">x</h6>
@@ -61,8 +61,15 @@
                 <option value="hedges">Hedges</option>
                 <option value="other">Other</option>
             </select>
-            <input type="text" name="picture" id="formPicture" placeholder="picture">
-            <input type="file" accept="image/*" capture="camera" />
+            <label for="">Picture upload type</label>
+            <br>
+            <a class="uploadButton selectedButton" onclick="showURL()" href="#">URL</a>
+            <a class="uploadButton" onclick="showFile()" href="#">File</a>
+            <a class="uploadButton" onclick="showCamera()" href="#">Camera</a>
+            <input type="text" name="pictureUrl" id="pictureUrl" placeholder="URL">
+            <input type="file" name="pictureFile" id="pictureFile" class="hide">
+            <label for="pictureCameraHidden" class="cameraButton hide" id="pictureCamera">Open Camera</label>
+            <input type="file" accept="image/*" capture="camera" id="pictureCameraHidden" name="pictureCamera"/>
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
                 <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">
@@ -90,6 +97,10 @@
         const blurr2 = document.getElementsByClassName('blurr2')
         const form = document.getElementById('new')
         const info = document.getElementById('info')
+        const buttons = document.getElementsByClassName('uploadButton')
+        const Url = document.getElementById('pictureUrl')
+        const file = document.getElementById('pictureFile')
+        const camera = document.getElementById('pictureCamera')
         function showForm() {
             form.classList.toggle("hidden")
             for (i = 0; i < blurr.length; i++) {
@@ -101,6 +112,33 @@
             for (i = 0; i < blurr2.length; i++) {
                 blurr2[i].classList.toggle("hidden")
             }
+        }
+        function showURL() {
+            for (i=0; i<buttons.length; i++) {
+                buttons[i].classList.remove('selectedButton')
+            }
+            buttons[0].classList.add('selectedButton')
+            Url.classList.remove('hide')
+            file.classList.add('hide')
+            camera.classList.add('hide')
+        }
+        function showFile() {
+            for (i=0; i<buttons.length; i++) {
+                buttons[i].classList.remove('selectedButton')
+            }
+            buttons[1].classList.add('selectedButton')
+            Url.classList.add('hide')
+            file.classList.remove('hide')
+            camera.classList.add('hide')
+        }
+        function showCamera() {
+            for (i=0; i<buttons.length; i++) {
+                buttons[i].classList.remove('selectedButton')
+            }
+            buttons[2].classList.add('selectedButton')
+            Url.classList.add('hide')
+            file.classList.add('hide')
+            camera.classList.remove('hide')
         }
     </script>
 </body>
