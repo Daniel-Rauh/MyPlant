@@ -7,7 +7,6 @@ const passportSetup = require("./config/passportSetup");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const User = require("./models/user");
-// const nodemailer = require("nodemailer");
 
 app.use(
   cookieSession({
