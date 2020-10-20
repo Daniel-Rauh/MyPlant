@@ -355,8 +355,6 @@ app.post('/editPlant/:id', (req, res) => {
         })
 })
 app.post('/api/station/:id', (req, res) => {
-    console.log(req.body)
-    console.log(req.params)
     User.findById(req.params.id)
         .catch(err => console.log(err))
         .then((result) => {
