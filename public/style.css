@@ -492,3 +492,11 @@ footer {
     z-index: 6;
   }
 }
+.automation{
+  position: absolute;
+}
+.plantCard .automation{
+  width: 40px;
+  height: 40px;
+  padding: 5px 5px;
+}

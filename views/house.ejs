@@ -23,7 +23,7 @@
         <div class="room">
             <h3><%= room.name %> </h3>
             <% data.plants.forEach(plant => { %>
-            <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true || plant.room === room.name && plant.automated === true && plant.needsWater === true) { %>
+            <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
             <a href="/waterPlant/<%= plant._id %> ">
                 <div class="plantCard">
                     <img src=<%= plant.picture %> alt="">
@@ -36,8 +36,13 @@
                 <img src=<%= plant.picture %> alt="">
                 <p><%= plant.name %> </p>
             </div>
-            <% } %>
-            <% }) %>
+            <% } else if (plant.room === room.name && plant.automated === true && plant.needsWater === true){%>
+                <div class="plantCard">
+                    <img src="/antenna.svg" alt="" class="automation">
+                    <img src=<%= plant.picture %> alt="">
+                    <p><%= plant.name %> </p>
+                </div>
+            <% }}) %>
         </div>
         <% }) %>
     </section>
