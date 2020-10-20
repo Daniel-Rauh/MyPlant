@@ -406,7 +406,7 @@ footer{
   /* transform: translate(-50%, -50%); */
 }
 .content__error {
-  max-width: 370px;
+  max-width: 300px;
   margin: 20% auto;
   display: flex;
   flex-direction: row;
@@ -419,8 +419,8 @@ footer{
   font-weight: 800;
 }
 .content__error .circle {
-  width: 175px;
-  height: 175px;
+  width: 100px;
+  height: 100px;
   /* background: #ccc url("https://media.giphy.com/media/Qkdk0yIA7b4T6/giphy.gif") center center; */
     background: #ccc url("https://media.giphy.com/media/3o7TKp3cFUIxiCW8KI/giphy.gif") center center;
   background-size: cover;
