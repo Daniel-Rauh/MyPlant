@@ -154,6 +154,7 @@ ul {
 #species {
      width: 94%;
     background: #E5E5E5;
+      color: grey;
     border: none;
     border-radius: 40px;
     padding: 12px;
@@ -393,7 +394,8 @@ span{
 .content__error .circle {
   width: 175px;
   height: 175px;
-  background: #ccc url("https://media.giphy.com/media/Qkdk0yIA7b4T6/giphy.gif") center center;
+  /* background: #ccc url("https://media.giphy.com/media/Qkdk0yIA7b4T6/giphy.gif") center center; */
+    background: #ccc url("https://media.giphy.com/media/3o7TKp3cFUIxiCW8KI/giphy.gif") center center;
   background-size: cover;
   border-radius: 50%;
   position: relative;
@@ -436,4 +438,14 @@ span{
 }
 .content__caption a:hover:after {
   width: 100%;
+}
+/* *********************** */
+@media only screen and (max-width: 1200px) {
+ .navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 6;
+}
 }
