@@ -7,7 +7,8 @@ const plantSchema = new Schema({
     species: String,
     picture: String,
     schedule: Array,
-    needsWater: Boolean
+    needsWater: Boolean,
+    moisture: Number
 })
 
 const roomSchema = new Schema({

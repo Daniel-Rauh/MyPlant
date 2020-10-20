@@ -354,3 +354,24 @@ app.post('/editPlant/:id', (req, res) => {
                 })
         })
 })
+app.post('/api/station/:id', (req, res) => {
+    console.log(req.body)
+    console.log(req.params)
+    User.findById(req.params.id)
+        .catch(err => console.log(err))
+        .then((result) => {
+            let moist = req.body.Earth
+            let plant = req.body.Plant
+            let newPlants = result.plants
+            for (i = 0; i <newPlants.length; i++) {
+                if (newPlants[i]._id == plant) {
+                    newPlants[i].moisture = moist
+                }
+            }
+            User.findByIdAndUpdate(req.params.id, { plants: newPlants }, { useFindAndModify: false })
+                .catch(err => console.log(err))
+                .then(()=>{
+                    console.log('Moisture updated')
+                })
+        })
+}) 
