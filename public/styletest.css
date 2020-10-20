@@ -89,7 +89,7 @@ img {
   box-shadow: 10px 5px 5px lightgreen;
   border-radius: 40px;
   text-align: center;
-  height: 40px;
+  height: 55px;
 }
 
 .boxshadows h3 {
@@ -194,9 +194,9 @@ nav img:hover {
 button:focus {
   outline: 0;
 }
-.buttonRoom img{
+.buttonRoom img {
   width: 50px;
 }
-#new p{
+#new p {
   font-size: 1rem;
 }
