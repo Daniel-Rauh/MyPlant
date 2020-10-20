@@ -61,6 +61,22 @@ app.get('/house', (req, res) => {
                 room.plants = plantCounter
                 newRooms[i] = room
             }
+            let plantAuto = result[0].plants
+            for (i = 0; i < plantAuto.length; i++) {
+                if (plantAuto[i].moisture >= 300) {
+                    plantAuto[i].needsWater = false
+                    console.log("I'm here")
+                    User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: plantAuto }, { useFindAndModify: false })
+                        .catch(err => console.log(err))
+                        .then(console.log("Auto updated"))
+                } else if (plantAuto[i].moisture < 300) {
+                    plantAuto[i].needsWater = true
+                    console.log("Thirsty")
+                    User.findOneAndUpdate({ googleId: req.user.googleId }, { plants: plantAuto }, { useFindAndModify: false })
+                        .catch(err => console.log(err))
+                        .then(console.log("Auto updated"))
+                }
+            }
             if (result[0].lastUpdated != day) {
                 let newPlants = result[0].plants
                 let newMiss = result[0].daysSinceMiss
