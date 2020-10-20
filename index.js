@@ -10,6 +10,7 @@ const User = require('./models/user')
 const formidable = require("formidable");
 const path = require("path");
 const fs = require('fs')
+const { timeStamp } = require('console')
 
 app.use(cookieSession({
     name: 'session',
@@ -386,6 +387,10 @@ app.post('/api/station/:id', (req, res) => {
                 .catch(err => console.log(err))
                 .then(()=>{
                     console.log('Moisture updated')
+                    res.send("OK")
                 })
         })
 }) 
+app.get('/*', (req, res) => {
+    res.status(404).render('404')
+})
