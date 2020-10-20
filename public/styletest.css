@@ -202,3 +202,18 @@ button:focus {
 #new p {
   font-size: 1rem;
 }
+
+@media screen and (min-width: 750px) {
+  .plantCard img {
+    width: 240px;
+    height: 240px;
+  }
+  .plantCard p {
+    text-align: left;
+    font-size: 35px;
+  }
+  .watered {
+    width: 240px;
+    height: 240px;
+  }
+}
