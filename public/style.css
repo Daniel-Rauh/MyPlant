@@ -80,16 +80,16 @@ ul {
 }
 #hero p {
   padding-left: 10%;
-  font-size: 24px;
+  font-size: 1.1rem;
   color: #4e4b66;
 }
 
 .room {
-  margin-top: 5vh;
+  margin-top: 10vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding: 5% 10%;
+  padding: 0 10%;
 }
 .plantCard {
   width: 100%;
@@ -110,6 +110,7 @@ ul {
   border-radius: 20%;
 }
 .plantCard p {
+  font-size: .8rem;
   font-weight: 100;
   /* padding: 20px 40px; */
   text-align: center;
@@ -199,7 +200,7 @@ img {
   height: 20vh;
   background: #00acee;
   border-radius: 20%;
-  opacity: 0.5;
+  opacity: 0.7;
   z-index: 2;
 }
 #roomGrid {
@@ -214,15 +215,14 @@ img {
 /* ********************************* */
 #bild {
   border-radius: 50%;
-  margin-left: 40%;
-  width: 25%;
+  width: 30%;
+  margin-top: 3vh;
 }
 .text {
-  width: 200px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-left: 25%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .text p {
   color: #80849e;
@@ -249,7 +249,7 @@ footer {
   margin-top: 45%;
 }
 #profileCard {
-  margin-top: 8%;
+  margin-top: 3vh;
   min-height: 85vh;
 }
 #profileCard h1 {
@@ -329,6 +329,13 @@ footer {
   font-size: 30px;
   padding-left: 3%;
 }
+.formFlexHero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  padding-left: 3%;
+}
 .formFlex h6 {
   font-size: 1.8rem;
   padding-bottom: 13px;
@@ -337,6 +344,10 @@ footer {
   font-size: 1.5rem;
   margin-right: 20px;
   border-radius: 50%;
+}
+.question:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 .blue {
   color: #00acee;
@@ -404,6 +415,7 @@ footer {
 }
 /* ///////////////////////////////404//////////// */
 #notFound {
+  padding-bottom: 10vh;
   width: 100%;
   /* display: flex;
    flex-direction: row;
@@ -422,7 +434,7 @@ footer {
 }
 .content__error {
   max-width: 300px;
-  margin: 20% auto;
+  margin: 10% auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -482,6 +494,14 @@ footer {
 .content__caption a:hover:after {
   width: 100%;
 }
+.automation{
+  position: absolute;
+}
+.plantCard .automation{
+  width: 40px;
+  height: 40px;
+  padding: 5px 5px;
+}
 /* *********************** */
 @media only screen and (max-width: 1200px) {
   .navigation {
@@ -491,12 +511,4 @@ footer {
     height: 10vh;
     z-index: 6;
   }
-}
-.automation{
-  position: absolute;
-}
-.plantCard .automation{
-  width: 40px;
-  height: 40px;
-  padding: 5px 5px;
 }

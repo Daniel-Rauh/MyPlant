@@ -20,6 +20,10 @@
         <img src=<%= plant.picture %> alt="">
         <h3><%= plant.name %> </h3>
         <h4><%= plant.species %> </h4>
+        <% if (plant.automated) { %>
+        <h4>Automated</h4>
+        <h4>Current Moisture: <%= plant.moisture %></h4>
+        <% } else { %>
         <div class="plantFlex">
             <h4>Schedule:</h4>
             <div class="schedule">
@@ -28,6 +32,7 @@
                 <% }) %>
             </div>
         </div>
+        <% } %>
         <a href="/deletePlant/<%= plant._id %> " class="mint">Delete</a>
         <a href="#" class="mint" onclick="showForm()">Edit</a>
     </section>
@@ -50,58 +55,58 @@
             <input type="text" name="name" id="name" value=<%= plant.name %>>
             <!-- <input type="text" name="species" id="species" value=<%= plant.species %>> -->
             <select id="species" name="species">
-                <option value="species">Species</option>
-                <option value="roomplant">Roomplant</option>
-                <option value="bamboo">Bamboo</option>
-                <option value="perennials">Perennials</option>
-                <option value="shrubs">Shrubs</option>
-                <option value="hedges">Hedges</option>
-                <option value="other">Other</option>
+                <option value="Species">Species</option>
+                <option value="Roomplant">Roomplant</option>
+                <option value="Bamboo">Bamboo</option>
+                <option value="Perennials">Perennials</option>
+                <option value="Shrubs">Shrubs</option>
+                <option value="Hedges">Hedges</option>
+                <option value="Other">Other</option>
             </select>
 
             <input type="text" name="picture" id="formPicture" value=<%= plant.picture %>>
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
-                <% if (plant.schedule.includes("Montag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-mon" value="Montag" checked>
+                <% if (plant.schedule.includes("Monday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-mon" value="Monday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">
+                <input type="checkbox" name="schedule" id="weekday-mon" value="Monday">
                 <% } %>
                 <label for="weekday-mon">M</label>
-                <% if (plant.schedule.includes("Dienstag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-tue" value="Dienstag" checked>
+                <% if (plant.schedule.includes("Tuesday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-tue" value="Tuesday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-tue" value="Dienstag">
+                <input type="checkbox" name="schedule" id="weekday-tue" value="Tuesday">
                 <% } %>
                 <label for="weekday-tue">T</label>
-                <% if (plant.schedule.includes("Mittwoch")) { %>
-                <input type="checkbox" name="schedule" id="weekday-wed" value="Mittwoch" checked>
+                <% if (plant.schedule.includes("Wednesday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-wed" value="Wednesday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-wed" value="Mittwoch">
+                <input type="checkbox" name="schedule" id="weekday-wed" value="Wednesday">
                 <% } %>
                 <label for="weekday-wed">W</label>
-                <% if (plant.schedule.includes("Donnerstag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-thu" value="Donnerstag" checked>
+                <% if (plant.schedule.includes("Thursday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-thu" value="Thursday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-thu" value="Donnerstag">
+                <input type="checkbox" name="schedule" id="weekday-thu" value="Thursday">
                 <% } %>
                 <label for="weekday-thu">T</label>
-                <% if (plant.schedule.includes("Freitag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-fri" value="Freitag" checked>
+                <% if (plant.schedule.includes("Friday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-fri" value="Friday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-fri" value="Freitag">
+                <input type="checkbox" name="schedule" id="weekday-fri" value="Friday">
                 <% } %>
                 <label for="weekday-fri">F</label>
-                <% if (plant.schedule.includes("Samstag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-sat" value="Samstag" checked>
+                <% if (plant.schedule.includes("Saturday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-sat" value="Saturday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-sat" value="Samstag">
+                <input type="checkbox" name="schedule" id="weekday-sat" value="Saturday">
                 <% } %>
                 <label for="weekday-sat">S</label>
-                <% if (plant.schedule.includes("Sonntag")) { %>
-                <input type="checkbox" name="schedule" id="weekday-sun" value="Sonntag" checked>
+                <% if (plant.schedule.includes("Sunday")) { %>
+                <input type="checkbox" name="schedule" id="weekday-sun" value="Sunday" checked>
                 <% } else { %>
-                <input type="checkbox" name="schedule" id="weekday-sun" value="Sonntag">
+                <input type="checkbox" name="schedule" id="weekday-sun" value="Sunday">
                 <% } %>
                 <label for="weekday-sun">S</label>
             </div>

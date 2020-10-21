@@ -27,8 +27,8 @@ body {
   background-color: #fbfdfc;
 }
 h1 {
-  font-size: 1.5em;
-  width: 70%;
+  font-size: 1.2em;
+  width: 100%;
   font-weight: 700;
   background-color: #fbfdfc;
   letter-spacing: 1px;
@@ -74,7 +74,7 @@ img {
   align-items: center;
   width: 100vw;
   font-size: 25px;
-  padding-top: 5%;
+  padding-top: 2vh;
 }
 
 .headerflex img {
@@ -85,7 +85,7 @@ img {
   box-shadow: inset;
   width: 90%;
   display: block;
-  margin: 6% auto;
+  margin: 5vh auto;
   box-shadow: 10px 5px 5px lightgreen;
   border-radius: 40px;
   text-align: center;
@@ -202,8 +202,22 @@ button:focus {
 #new p {
   font-size: 1rem;
 }
+#myHomeClass{
+  padding: 0 5% 20vh;
+}
 
 @media screen and (min-width: 750px) {
+  .automation{
+    width: 80px;
+    height: 80px;
+    padding: 30px 30px;
+  }
+  .plantCard{
+    margin-bottom: 20vh;
+  }
+  #roomGrid{
+    padding: 10vh 10%;
+  }
   .plantCard img {
     width: 240px;
     height: 240px;
@@ -215,6 +229,37 @@ button:focus {
   .watered {
     width: 240px;
     height: 240px;
+  }
+  #myHomeClass{
+    padding: 10vh 10% 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .buttonRoom{
+    position: absolute;
+    top: 2vh;
+    right: 5%;
+  }
+  .formFlex .question{
+    position: absolute;
+    top: 4vh;
+    right: 6%;
+  }
+  .formFlex h1{
+    position: absolute;
+    top: 2vh;
+    left: 5%;
+  }
+  #info .formFlex .question{
+    position: static;
+  }
+  #info .formFlex .h1{
+    position: static;
+  }
+  #plant img{
+    width: 40%;
+    height: 45vh;
   }
 }
 

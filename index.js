@@ -26,7 +26,7 @@ app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(passport.session())
 
-const dayArr = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+const dayArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let day = dayArr[new Date().getDay()]
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

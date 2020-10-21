@@ -22,6 +22,9 @@
         <% plants.forEach(plant => { %>
         <a href="/plant/<%= plant._id %> ">
             <div class="plantCard">
+                <% if (plant.automated) { %>
+                    <img src="/antenna.svg" alt="" class="automation">
+                <% } %>
                 <img src=<%= plant.picture %> alt="">
                 <p><%= plant.name %> </p>
             </div>
@@ -53,13 +56,13 @@
             </div>
             <input type="text" name="name" id="name" placeholder="Plant name">
             <select id="species" name="species">
-                <option value="species">Species</option>
-                <option value="roomplant">Roomplant</option>
-                <option value="bamboo">Bamboo</option>
-                <option value="perennials">Perennials</option>
-                <option value="shrubs">Shrubs</option>
-                <option value="hedges">Hedges</option>
-                <option value="other">Other</option>
+                <option value="Species">Species</option>
+                <option value="Roomplant">Roomplant</option>
+                <option value="Bamboo">Bamboo</option>
+                <option value="Perennials">Perennials</option>
+                <option value="Shrubs">Shrubs</option>
+                <option value="Hedges">Hedges</option>
+                <option value="Other">Other</option>
             </select>
             <label for="">Picture upload type</label>
             <br>
@@ -72,19 +75,19 @@
             <input type="file" accept="image/*" capture="camera" id="pictureCameraHidden" name="pictureCamera"/>
             <p>Watering Schedule</p>
             <div class="weekDays-selector">
-                <input type="checkbox" name="schedule" id="weekday-mon" value="Montag">
+                <input type="checkbox" name="schedule" id="weekday-mon" value="Monday">
                 <label for="weekday-mon">M</label>
-                <input type="checkbox" name="schedule" id="weekday-tue" value="Dienstag">
+                <input type="checkbox" name="schedule" id="weekday-tue" value="Tuesday">
                 <label for="weekday-tue">T</label>
-                <input type="checkbox" name="schedule" id="weekday-wed" value="Mittwoch">
+                <input type="checkbox" name="schedule" id="weekday-wed" value="Wednesday">
                 <label for="weekday-wed">W</label>
-                <input type="checkbox" name="schedule" id="weekday-thu" value="Donnerstag">
+                <input type="checkbox" name="schedule" id="weekday-thu" value="Thursday">
                 <label for="weekday-thu">T</label>
-                <input type="checkbox" name="schedule" id="weekday-fri" value="Freitag">
+                <input type="checkbox" name="schedule" id="weekday-fri" value="Friday">
                 <label for="weekday-fri">F</label>
-                <input type="checkbox" name="schedule" id="weekday-sat" value="Samstag">
+                <input type="checkbox" name="schedule" id="weekday-sat" value="Saturday">
                 <label for="weekday-sat">S</label>
-                <input type="checkbox" name="schedule" id="weekday-sun" value="Sonntag">
+                <input type="checkbox" name="schedule" id="weekday-sun" value="Sunday">
                 <label for="weekday-sun">S</label>
             </div>
             <input type="submit" value="Add">

@@ -15,7 +15,7 @@
     <div class="blurr hidden" onclick="showForm()"></div>
     <section id="hero">
         <p><%= today %></p>
-        <div class="formFlex">
+        <div class="formFlexHero">
             <h1>My Plants</h1>
             <span onclick="showForm()" class="question">?</span>
         </div>
@@ -23,25 +23,25 @@
         <div class="room">
             <h3><%= room.name %> </h3>
             <% data.plants.forEach(plant => { %>
-            <% if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
-            <a href="/waterPlant/<%= plant._id %> ">
+            <% if (plant.room === room.name && plant.automated === true && plant.needsWater === true){%>
                 <div class="plantCard">
+                    <img src="/antenna.svg" alt="" class="automation">
                     <img src=<%= plant.picture %> alt="">
                     <p><%= plant.name %> </p>
                 </div>
-            </a>
             <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === false){%>
             <div class="plantCard">
                 <div class="watered"></div>
                 <img src=<%= plant.picture %> alt="">
                 <p><%= plant.name %> </p>
             </div>
-            <% } else if (plant.room === room.name && plant.automated === true && plant.needsWater === true){%>
+            <% } else if (plant.room === room.name && plant.schedule.includes(today) && plant.needsWater === true) { %>
+            <a href="/waterPlant/<%= plant._id %> ">
                 <div class="plantCard">
-                    <img src="/antenna.svg" alt="" class="automation">
                     <img src=<%= plant.picture %> alt="">
                     <p><%= plant.name %> </p>
                 </div>
+            </a>
             <% }}) %>
         </div>
         <% }) %>

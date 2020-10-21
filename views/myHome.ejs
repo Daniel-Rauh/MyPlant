@@ -20,17 +20,19 @@
     </div>
     <span onclick="showInfo()" class="question">?</span>
   </article>
-  <% data.rooms.forEach(room => { %>
-  <a href="/room/<%= room._id %> " class="homeRoom">
-    <div class="boxshadows">
-      <h3><%= room.name %></h3>
-      <p><%= room.plants %> plants</p>
-    </div>
-  </a>
-  <% }) %>
-  <button class="buttonRoom">
-    <img src="icons8-pluss.svg" onclick="showForm()" alt="" />
-  </button>
+  <section id="myHomeClass">
+    <% data.rooms.forEach(room => { %>
+    <a href="/room/<%= room._id %> " class="homeRoom">
+      <div class="boxshadows">
+        <h3><%= room.name %></h3>
+        <p><%= room.plants %> plants</p>
+      </div>
+    </a>
+    <% }) %>
+    <button class="buttonRoom">
+      <img src="icons8-pluss.svg" onclick="showForm()" alt="" />
+    </button>
+  </section>
   <section id="info" class="hidden">
     <div class="formFlex">
       <h1>Info</h1>
@@ -43,18 +45,18 @@
     <p>If it's still empty try adding your first room by clicking on the plus sign.</p>
   </section>
   <section id="new" class="hidden">
-      <div class="NewRoomFlex">
-        <h1>Add Room</h1>
-        <button class="buttonRoom">
-          <img src="icons8x.png" alt="" onclick="showForm()"/>
-        </button>
-      </div>
-      <form action="/newRoom" method="POST">
-        <input type="text" name="name" id="name" placeholder="Room Name" />
-        <br />
-        <input type="submit" value="Add" />
-      </form>
-    </section>
+    <div class="NewRoomFlex">
+      <h1>Add Room</h1>
+      <button class="buttonRoom">
+        <img src="icons8x.png" alt="" onclick="showForm()" />
+      </button>
+    </div>
+    <form action="/newRoom" method="POST">
+      <input type="text" name="name" id="name" placeholder="Room Name" />
+      <br />
+      <input type="submit" value="Add" />
+    </form>
+  </section>
   <script>
     const blurr = document.getElementsByClassName('blurr')
     const blurr2 = document.getElementsByClassName('blurr2')
@@ -74,7 +76,7 @@
     }
   </script>
 
-    <div class="navigation"><%-include('./partials/navigation')%></div>
-  </body>
+  <div class="navigation"><%-include('./partials/navigation')%></div>
+</body>
 
 </html>
